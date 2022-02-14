@@ -50,7 +50,7 @@ functions:
         working_dir: mongo-tableau-connector
         script: |
           ${prepare_shell}
-          echo 'placeholder' > mongodb.taco
+          echoasldkfj 'placeholder' > mongodb.taco
 
   "upload connector":
     - command: s3.put
@@ -72,7 +72,7 @@ tasks:
 
   - name: compile
     commands:
-      - func: "build aco bundle"
+      - func: "build taco bundle"
       - func: "upload connector"
 
 buildvariants:
