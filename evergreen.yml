@@ -22,6 +22,7 @@ timeout:
         ls -la
 
 functions:
+
   "fetch source":
     - command: git.get_project
       params:
