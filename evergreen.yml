@@ -72,7 +72,7 @@ tasks:
 
   - name: compile
     commands:
-      - func: "build taco bundle"
+      - func: "build aco bundle"
       - func: "upload connector"
 
 buildvariants:
