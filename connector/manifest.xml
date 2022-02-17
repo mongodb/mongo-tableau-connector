@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='mongosql_jdbc' superclass='jdbc' plugin-version='0.0.0' name='PostgreSQL JDBC' version='18.1' min-version-tableau='2020.4'>
+<connector-plugin class='mongosql_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoSQL' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
-      <company name="Company Name"/>
+      <company name="MongoDB"/>
       <support-link url="https://example.com"/>
       <driver-download-link url="https://drivers.example.com"/>
   </vendor-information>

@@ -1,5 +1,5 @@
 (function dsbuilder(attr) {
-    var urlBuilder = "jdbc:postgresql://" + attr[connectionHelper.attributeServer] + ":" + attr[connectionHelper.attributePort] + "/" + attr[connectionHelper.attributeDatabase] + "?";
+    var urlBuilder = "jdbc:mongodb://" + attr[connectionHelper.attributeServer] + ":" + attr[connectionHelper.attributePort] + "/admin?";
 
     return [urlBuilder];
 })
