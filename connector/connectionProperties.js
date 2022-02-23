@@ -5,7 +5,6 @@
     props["dialect"] = "mongosql";
     props["database"] = attr[connectionHelper.attributeDatabase]
     props["authSource"] = "admin";
-    props["compressors"] = "zlib";
 
     if (attr[connectionHelper.attributeSSLMode] == "require") {
         props["ssl"] = "true";
