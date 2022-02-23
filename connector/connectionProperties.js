@@ -5,7 +5,6 @@
     props["authSource"] = attr["v-authDatabase"];
     props["database"] = attr[connectionHelper.attributeDatabase];
     props["dialect"] = "mongosql";
-    props["TYPE_MAPPING_MODE"] = "tableau";
 
     props["LogDir"] = attr["v-log-directory"];
     if (attr["v-loglevel"] == "log-debug") {
