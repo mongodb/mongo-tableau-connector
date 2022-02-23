@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<tdr class='mongosql_jdbc'>
+<connection-resolver>
+<connection-builder>
+<script file='connectionBuilder.js'/>
+</connection-builder>
+<connection-properties>
+<script file='connectionProperties.js'/>
+</connection-properties>
+</connection-resolver>
+</tdr>

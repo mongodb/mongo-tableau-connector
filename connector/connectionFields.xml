@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<connection-fields>
+  <field name="v-prefix" label="Connection Prefix" value-type="selection" category="endpoint" >
+    <selection-group>
+      <option value="mongodb" label="mongodb" />
+      <option value="mongodb+srv" label="mongodb+srv" />
+    </selection-group>
+  </field>
+
+  <field name="server" label="Server" value-type="string" category="endpoint" />
+
+  <field name="port" label="Port" value-type="string" category="endpoint" default-value="27017" />
+
+  <field name="authentication" label="Authentication" category="authentication" value-type="string" editable="false" default-value="auth-user-pass" />
+
+  <field name="username" label="Username" value-type="string" category="authentication" />
+
+  <field name="password" label="Password" value-type="string" category="authentication" secure="true" />
+
+  <field name="v-authDatabase" label="Authentication Database" value-type="string" category="authentication" default-value="admin" />
+
+  <field name="v-loglevel" label="JDBC Log Level" value-type="selection" default-value="log-info" category="general" >
+    <selection-group>
+      <option value="log-debug" label="DEBUG" />
+      <option value="log-info" label="INFO" />
+      <option value="log-error" label="ERROR" />
+    </selection-group>
+  </field>
+
+  <field name="v-logdiroption" label="Custom JDBC Log Directory" value-type="boolean" category="general"  >
+    <boolean-options>
+      <false-value value="" />
+      <true-value value="required" />
+    </boolean-options>
+  </field>
+
+  <field name="v-log-directory" label="JDBC Log Directory" value-type="string" default-value="" category="general"  >
+    <conditions>
+      <condition field="v-logdiroption" value="required"/>
+    </conditions>
+  </field>
+
+  <field name="sslmode" label="Require SSL" value-type="boolean" category="general" default-value="" >
+    <boolean-options>
+      <false-value value="" />
+      <true-value value="require" />
+    </boolean-options>
+  </field>
+
+</connection-fields>
