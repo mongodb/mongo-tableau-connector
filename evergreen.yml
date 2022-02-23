@@ -41,6 +41,44 @@ functions:
       params:
         file: mongo-tableau-connector/expansions.yml
 
+  "setup python virtual environment":
+    - command: shell.exec
+      params:
+        shell: bash
+        working_dir: mongo-tableau-connector
+        script: |
+          ${prepare_shell}
+
+          python3 -m venv .venv
+
+
+  "install connector plugin sdk":
+    - command: shell.exec
+      params:
+        shell: bash
+        working_dir: mongo-tableau-connector
+        script: |
+          ${prepare_shell}
+
+          # Clone connector-plugin-sdk and install packaging module
+          git clone https://github.com/tableau/connector-plugin-sdk.git
+          source ./.venv/bin/activate
+          ( cd connector-plugin-sdk/connector-packager && python3 setup.py install )
+
+  "validate connector XML format":
+    - command: shell.exec
+      type: test
+      params:
+        shell: bash
+        working_dir: mongo-tableau-connector
+        script: |
+          ${prepare_shell}
+          source ./.venv/bin/activate
+          # Running packager validation step
+          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
+          --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
+          | grep "Validation succeeded." >/dev/null)
+
   "build taco bundle":
     - command: shell.exec
       type: test
@@ -49,30 +87,54 @@ functions:
         working_dir: mongo-tableau-connector
         script: |
           ${prepare_shell}
-          echo 'placeholder' > mongodb.taco
+          source ./.venv/bin/activate
 
-  "upload connector":
+          # Running packager from connector-packager dir
+          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
+          --verbose ../../connector/ --dest ../../package --log ../../logs 2>&1 | tee /dev/stdout \
+          | grep "Taco packaged" >/dev/null)
+
+  "upload packaged connector":
     - command: s3.put
       params:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        local_file: mongo-tableau-connector/mongodb.taco
-        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb.taco
+        local_file: mongo-tableau-connector/package/mongosql_jdbc.taco
+        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongosql_jdbc.taco
         bucket: mciuploads
         permissions: public-read
         content_type: application/octet-stream
 
+  "upload packager log file":
+    - command: s3.put
+      params:
+        silent: true
+        aws_key: ${aws_key}
+        aws_secret: ${aws_secret}
+        local_file: mongo-tableau-connector/logs/packaging_logs.txt
+        remote_file: mongo-tableau-connector/artifacts/${version_id}/packaging_logs.txt
+        content_type: text/html
+        bucket: mciuploads
+        permissions: public-read
+        display_name: "Tableau Connector Packaging Logfile"
 
 pre:
   - func: "fetch source"
+  - func: "setup python virtual environment"
   - func: "generate expansions"
+  - func: "install connector plugin sdk"
+
+post:
+  - func: "upload packager log file"
+
 
 tasks:
-
   - name: compile
     commands:
+      - func: "validate connector XML format"
       - func: "build taco bundle"
-      - func: "upload connector"
+      - func: "upload packaged connector"
+
 
 buildvariants:
 
