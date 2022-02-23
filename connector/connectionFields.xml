@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <connection-fields>
+
   <field name="v-prefix" label="Connection Prefix" value-type="selection" category="endpoint" >
     <selection-group>
       <option value="mongodb" label="mongodb" />
