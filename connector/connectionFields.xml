@@ -21,27 +21,6 @@
 
   <field name="v-authDatabase" label="Authentication Database" value-type="string" category="authentication" default-value="admin" />
 
-  <field name="v-loglevel" label="JDBC Log Level" value-type="selection" default-value="log-info" category="general" >
-    <selection-group>
-      <option value="log-debug" label="DEBUG" />
-      <option value="log-info" label="INFO" />
-      <option value="log-error" label="ERROR" />
-    </selection-group>
-  </field>
-
-  <field name="v-logdiroption" label="Custom JDBC Log Directory" value-type="boolean" category="general"  >
-    <boolean-options>
-      <false-value value="" />
-      <true-value value="required" />
-    </boolean-options>
-  </field>
-
-  <field name="v-log-directory" label="JDBC Log Directory" value-type="string" default-value="" category="general"  >
-    <conditions>
-      <condition field="v-logdiroption" value="required"/>
-    </conditions>
-  </field>
-
   <field name="sslmode" label="Require SSL" value-type="boolean" category="general" default-value="" >
     <boolean-options>
       <false-value value="" />
