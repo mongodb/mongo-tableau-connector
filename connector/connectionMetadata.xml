@@ -2,7 +2,7 @@
 
 <connection-metadata>
   <database enabled='true' label='Database'>
-    <field optional='true' />
+    <field optional='false' />
   </database>
   <schema enabled='false' />
   <table enabled='true' label='Table' />
