@@ -12,7 +12,6 @@
               <attr>authentication</attr>
               <attr>username</attr>
               <attr>password</attr>
-              <attr>sslmode</attr>
             </attribute-list>
           </required-attributes>
         </connection-normalizer>
