@@ -1,6 +1,4 @@
 (function dsbuilder(attr) {
 
-    var urlBuilder = "jdbc:" + attr["v-protocol"] + "://" +
-        attr[connectionHelper.attributeServer] + ":" +
-        attr[connectionHelper.attributePort] + "/?";
+    var urlBuilder = "jdbc:" + attr["v-connection-uri"];
     return [urlBuilder]; })

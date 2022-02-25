@@ -2,24 +2,13 @@
 
 <connection-fields>
 
-  <field name="v-protocol" label="Connection Protocol" value-type="selection" category="endpoint" >
-    <selection-group>
-      <option value="mongodb" label="mongodb" />
-      <option value="mongodb+srv" label="mongodb+srv" />
-    </selection-group>
-  </field>
-
-  <field name="server" label="Server" value-type="string" category="endpoint" />
-
-  <field name="port" label="Port" value-type="string" category="endpoint" default-value="27017" />
+  <field name="v-connection-uri" label="Connection URI" value-type="string" category="endpoint" />
 
   <field name="authentication" label="Authentication" category="authentication" value-type="string" editable="false" default-value="auth-user-pass" />
 
   <field name="username" label="Username" value-type="string" category="authentication" />
 
   <field name="password" label="Password" value-type="string" category="authentication" secure="true" />
-
-  <field name="v-authDatabase" label="Authentication Database" value-type="string" category="authentication" default-value="admin" />
 
   <field name="sslmode" label="Require SSL" value-type="boolean" category="general" default-value="" >
     <boolean-options>

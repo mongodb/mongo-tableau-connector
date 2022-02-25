@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='mongosql_jdbc' superclass='jdbc' plugin-version='0.1.0' name='MongoSQL' version='18.1' min-version-tableau='2021.1'>
+<connector-plugin class='mongosql_jdbc' superclass='jdbc' plugin-version='0.1.0' name='MongoDB Atlas' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
       <company name="MongoDB"/>
       <support-link url="https://support.mongodb.com"/>
@@ -8,7 +8,7 @@
   </vendor-information>
   <connection-customization class="mongosql_jdbc" enabled="true" version="10.0">
     <vendor name="MongoDB"/>
-    <driver name="MongoSQL Connector"/>
+    <driver name="MongoDB Atlas"/>
     <customizations>
       <customization name="CAP_SELECT_INTO" value="yes"/>
       <customization name="CAP_SELECT_TOP_INTO" value="yes"/>

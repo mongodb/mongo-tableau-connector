@@ -2,7 +2,6 @@
     var props = {};
     props["user"] = attr[connectionHelper.attributeUsername];
     props["password"] = attr[connectionHelper.attributePassword];
-    props["authSource"] = attr["v-authDatabase"];
     props["database"] = attr[connectionHelper.attributeDatabase];
     props["dialect"] = "mongosql";
 
