@@ -2,7 +2,7 @@
 
 <connection-fields>
 
-  <field name="v-connection-uri" label="Connection URI" value-type="string" category="endpoint" />
+  <field name="v-mongodb-uri" label="MongoDB URI" value-type="string" category="endpoint" />
 
   <field name="authentication" label="Authentication" category="authentication" value-type="string" editable="false" default-value="auth-user-pass" />
 
