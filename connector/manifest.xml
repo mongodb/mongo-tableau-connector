@@ -6,7 +6,7 @@
       <support-link url="https://support.mongodb.com"/>
       <driver-download-link url="https://search.maven.org/artifact/org.mongodb/mongodb-jdbc"/>
   </vendor-information>
-  <connection-customization class="mongosql_jdbc" enabled="true" version="10.0">
+  <connection-customization class="mongodb_jdbc" enabled="true" version="10.0">
     <vendor name="MongoDB"/>
     <driver name="MongoDB Atlas"/>
     <customizations>

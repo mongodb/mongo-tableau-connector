@@ -1,4 +1,4 @@
 (function dsbuilder(attr) {
 
-    var urlBuilder = "jdbc:" + attr["v-connection-uri"];
+    var urlBuilder = "jdbc:" + attr["v-mongodb-uri"];
     return [urlBuilder]; })

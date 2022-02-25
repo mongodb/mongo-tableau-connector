@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<tdr class='mongosql_jdbc'>
+<tdr class='mongodb_jdbc'>
     <connection-resolver>
         <connection-builder>
             <script file='connectionBuilder.js'/>
@@ -7,7 +7,7 @@
         <connection-normalizer>
           <required-attributes>
             <attribute-list>
-              <attr>v-connection-uri</attr>
+              <attr>v-mongodb-uri</attr>
               <attr>dbname</attr>
               <attr>authentication</attr>
               <attr>username</attr>
