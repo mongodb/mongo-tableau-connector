@@ -10,11 +10,4 @@
 
   <field name="password" label="Password" value-type="string" category="authentication" secure="true" />
 
-  <field name="sslmode" label="Require SSL" value-type="boolean" category="general" default-value="" >
-    <boolean-options>
-      <false-value value="" />
-      <true-value value="require" />
-    </boolean-options>
-  </field>
-
 </connection-fields>
