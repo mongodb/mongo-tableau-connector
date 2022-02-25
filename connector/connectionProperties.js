@@ -7,7 +7,6 @@
 
     if (attr[connectionHelper.attributeSSLMode] == "require") {
         props["ssl"] = "true";
-        props["sslmode"] = "require";
     }
 
     return props;
