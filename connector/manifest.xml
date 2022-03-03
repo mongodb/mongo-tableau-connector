@@ -10,8 +10,8 @@
     <vendor name="vendor"/>
     <driver name="driver"/>
     <customizations>
+      <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
       <!-- Metadata -->
-      <customization name="CAP_FAST_METADATA" value="yes"/>
       <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="yes"/>
       <!-- Temporary Tables -->
       <customization name="CAP_CREATE_TEMP_TABLES" value="no"/>
@@ -23,21 +23,16 @@
       <!-- Initial SQL-->
       <customization name="CAP_SUPPORTS_INITIAL_SQL" value="yes"/>
       <!-- Query -->
-      <customization name="CAP_QUERY_ALLOW_JOIN_REORDER" value="yes"/>
       <customization name="CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL" value="yes"/>
       <customization name="CAP_QUERY_BOOLEXPR_TO_INTEXPR" value="no"/>
       <customization name="CAP_QUERY_CASE_OUT_NO_BOOL_OPS" value="yes"/>
       <customization name="CAP_QUERY_GROUP_BY_ALIAS" value="yes"/>
       <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes"/>
-      <customization name="CAP_QUERY_GROUP_BY_DEGREE" value="no"/>
       <customization name="CAP_QUERY_HAVING_UNSUPPORTED" value="no"/>
       <customization name="CAP_QUERY_INCLUDE_GROUP_BY_COLUMNS_IN_SELECT" value="yes"/>
       <customization name="CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS" value="yes"/>
       <customization name="CAP_QUERY_SORT_BY" value="yes"/>
-      <customization name="CAP_QUERY_SORT_BY_DEGREE" value="yes"/>
       <customization name="CAP_QUERY_SUBQUERIES" value="yes"/>
-      <customization name="CAP_QUERY_SUBQUERIES_WITH_TOP" value="yes"/>
-      <customization name="CAP_QUERY_SUBQUERY_QUERY_CONTEXT" value="yes"/>
       <customization name="CAP_QUERY_SUPPORT_EMPTY_GROUPBY" value="no"/>
       <customization name="CAP_QUERY_TOP_0" value="no"/>
       <!-- JDBC -->
