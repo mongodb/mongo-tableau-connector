@@ -1,5 +1,4 @@
 (function dsbuilder(attr) {
-    var urlBuilder = "jdbc:mongodb://" + attr[connectionHelper.attributeServer] + ":" + attr[connectionHelper.attributePort] + "/admin?";
 
-    return [urlBuilder];
-})
+    var urlBuilder = "jdbc:" + attr["v-mongodb-uri"];
+    return [urlBuilder]; })

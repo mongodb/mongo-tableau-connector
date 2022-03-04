@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='mongosql_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoSQL' version='18.1' min-version-tableau='2020.4'>
+<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.1.0' name='MongoDB Atlas' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
       <company name="MongoDB"/>
-      <support-link url="https://example.com"/>
-      <driver-download-link url="https://drivers.example.com"/>
+      <support-link url="https://support.mongodb.com"/>
+      <driver-download-link url="https://search.maven.org/artifact/org.mongodb/mongodb-jdbc"/>
   </vendor-information>
-  <connection-customization class="mongosql_jdbc" enabled="true" version="10.0">
-    <vendor name="vendor"/>
-    <driver name="driver"/>
+  <connection-customization class="mongodb_jdbc" enabled="true" version="10.0">
+    <vendor name="MongoDB"/>
+    <driver name="MongoDB Atlas"/>
     <customizations>
       <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
       <!-- Metadata -->
