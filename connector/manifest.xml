@@ -25,8 +25,8 @@
       <!-- Query -->
       <customization name="CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL" value="yes"/>
       <customization name="CAP_QUERY_BOOLEXPR_TO_INTEXPR" value="no"/>
+      <customization name="CAP_QUERY_CASE_MATCHES_NULL" value="yes"/>
       <customization name="CAP_QUERY_CASE_OUT_NO_BOOL_OPS" value="no"/>
-      <customization name="CAP_QUERY_GROUP_BY_ALIAS" value="no"/>
       <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes"/>
       <customization name="CAP_QUERY_HAVING_UNSUPPORTED" value="no"/>
       <customization name="CAP_QUERY_INCLUDE_GROUP_BY_COLUMNS_IN_SELECT" value="no"/>
@@ -38,6 +38,8 @@
       <customization name="CAP_QUERY_TOP_0" value="no"/>
       <customization name="CAP_QUERY_TOP_N" value="yes"/>
       <!-- JDBC -->
+      <customization name="CAP_JDBC_METADATA_READ_FOREIGNKEYS" value="no"/>
+      <customization name="CAP_JDBC_METADATA_READ_PRIMARYKEYS" value="no"/>
       <customization name="CAP_JDBC_QUERY_CANCEL" value="no"/>
       <customization name="CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS" value="yes"/>
     </customizations>
