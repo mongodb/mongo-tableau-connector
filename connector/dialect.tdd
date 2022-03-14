@@ -51,7 +51,7 @@
       <argument type='datetime' />
     </function>
     <function group='aggregate' name='MAX' return-type='bool'>
-      <formula>BOOL_OR(%1)</formula>
+      <formula>MAX(%1)</formula>
       <unagg-formula>%1</unagg-formula>
       <argument type='bool' />
     </function>
@@ -81,7 +81,7 @@
       <argument type='date' />
     </function>
     <function group='aggregate' name='MIN' return-type='bool'>
-      <formula>BOOL_AND(%1)</formula>
+      <formula>MIN(%1)</formula>
       <unagg-formula>%1</unagg-formula>
       <argument type='bool' />
     </function>
@@ -322,11 +322,6 @@
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
-    <function group='operator' name='&amp;&amp;' return-type='bool'>
-      <formula>(%1 AND %2)</formula>
-      <argument type='bool' />
-      <argument type='bool' />
-    </function>
     <function group='operator' name='*' return-type='real'>
       <formula>(%1 * %2)</formula>
       <argument type='real' />
@@ -351,16 +346,6 @@
       <formula>(%1 || %2)</formula>
       <argument type='str' />
       <argument type='str' />
-    </function>
-    <function group='operator' name='+' return-type='datetime'>
-      <formula>(%1 + %2 * INTERVAL &apos;1 DAY&apos;)</formula>
-      <argument type='datetime' />
-      <argument type='real' />
-    </function>
-    <function group='operator' name='+' return-type='date'>
-      <formula>(%1 + %2 * INTERVAL &apos;1 DAY&apos;)</formula>
-      <argument type='date' />
-      <argument type='int' />
     </function>
     <function group='operator' name='-' return-type='real'>
       <formula>(-%1)</formula>
@@ -483,7 +468,7 @@
       <argument type='str' />
     </function>
     <function group='string' name='FIND' return-type='int'>
-      <formula>POSITION(CAST(%1 AS CHAR),CAST(%2 AS CHARß))</formula>
+      <formula>POSITION(CAST(%1 AS CHAR) IN CAST(%2 AS CHAR))</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
