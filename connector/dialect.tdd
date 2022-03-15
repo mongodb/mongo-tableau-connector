@@ -5,10 +5,20 @@
          class='mongodb_jdbc'
          version='18.1'>
   <function-map>
+  <function group='aggregate' name='AVG' return-type='real'>
+    <formula>AVG(%1)</formula>
+    <unagg-formula>%1</unagg-formula>
+    <argument type='int' />
+  </function>
     <function group='aggregate' name='AVG' return-type='real'>
       <formula>AVG(%1)</formula>
       <unagg-formula>%1</unagg-formula>
       <argument type='real' />
+    </function>
+    <function group='aggregate' name='COUNT' return-type='int'>
+      <formula>COUNT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='int' />
     </function>
     <function group='aggregate' name='COUNT' return-type='int'>
       <formula>COUNT(%1)</formula>
@@ -29,6 +39,11 @@
       <formula>COUNT(%1)</formula>
       <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
       <argument type='datetime' />
+    </function>
+    <function group='aggregate' name='COUNTD' return-type='int'>
+      <formula>COUNT(DISTINCT %1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='int' />
     </function>
     <function group='aggregate' name='COUNTD' return-type='int'>
       <formula>COUNT(DISTINCT %1)</formula>
