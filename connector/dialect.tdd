@@ -183,26 +183,23 @@
       <argument type='bool' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>(CASE
-        WHEN %1 THEN &apos;true&apos;
-        WHEN NOT %1 THEN &apos;false&apos;
-        ELSE NULL END)</formula>
+      <formula>CAST(%1 AS STRING)</formula>
       <argument type='bool' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS CHAR)</formula>
+      <formula>CAST(%1 AS STRING)</formula>
       <argument type='real' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS CHAR)</formula>
+      <formula>CAST(%1 AS STRING)</formula>
       <argument type='int' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS CHAR)</formula>
+      <formula>CAST(%1 AS STRING)</formula>
       <argument type='str' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS CHAR)</formula>
+      <formula>CAST(%1 AS STRING)</formula>
       <argument type='datetime' />
     </function>
     <function group='date' name='MONTH' return-type='int'>
@@ -647,7 +644,7 @@
       <argument type='str' />
     </function>
     <function group='string' name='FIND' return-type='int'>
-      <formula>POSITION(CAST(%1 AS CHAR) IN CAST(%2 AS CHAR))</formula>
+      <formula>POSITION(CAST(%1 AS STRING) IN CAST(%2 AS STRING))</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
