@@ -5,11 +5,11 @@
          class='mongodb_jdbc'
          version='18.1'>
   <function-map>
-  <function group='aggregate' name='AVG' return-type='real'>
-    <formula>AVG(%1)</formula>
-    <unagg-formula>%1</unagg-formula>
-    <argument type='int' />
-  </function>
+    <function group='aggregate' name='AVG' return-type='real'>
+      <formula>AVG(%1)</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='int' />
+    </function>
     <function group='aggregate' name='AVG' return-type='real'>
       <formula>AVG(%1)</formula>
       <unagg-formula>%1</unagg-formula>
@@ -308,6 +308,10 @@
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
       <formula>(%1 IS NULL)</formula>
+      <argument type='int' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
       <argument type='str' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
@@ -327,6 +331,21 @@
       <argument type='int' />
       <argument type='int' />
     </function>
+    <function group='numeric' name='DIV' return-type='real'>
+      <formula>CASE WHEN %2 = 0 THEN NULL ELSE ( %1 / %2 ) END</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='DIV' return-type='real'>
+      <formula>CASE WHEN %2 = 0 THEN NULL ELSE ( %1 / %2 ) END</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='DIV' return-type='real'>
+      <formula>CASE WHEN %2 = 0 THEN NULL ELSE ( %1 / %2 ) END</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
     <function group='operator' name='!' return-type='bool'>
       <formula>(NOT %1)</formula>
       <argument type='bool' />
@@ -340,6 +359,21 @@
       <formula>(%1 &lt;&gt; %2)</formula>
       <argument type='real' />
       <argument type='real' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 &lt;&gt; %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 &lt;&gt; %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 &lt;&gt; %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
       <formula>(%1 &lt;&gt; %2)</formula>
@@ -381,12 +415,12 @@
       <argument type='int' />
       <argument type='int' />
     </function>
-    <function group='operator' name='+' return-type='int'>
+    <function group='operator' name='+' return-type='real'>
       <formula>(%1 + %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
-    <function group='operator' name='+' return-type='int'>
+    <function group='operator' name='+' return-type='real'>
       <formula>(%1 + %2)</formula>
       <argument type='real' />
       <argument type='int' />
@@ -400,26 +434,26 @@
       <formula>(-%1)</formula>
       <argument type='real' />
     </function>
+    <function group='operator' name='-' return-type='int'>
+      <formula>(-%1)</formula>
+      <argument type='int' />
+    </function>
     <function group='operator' name='-' return-type='real'>
       <formula>(%1 - %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='-' return-type='int'>
-      <formula>(-%1)</formula>
-      <argument type='int' />
-    </function>
-    <function group='operator' name='-' return-type='int'>
       <formula>(%1 - %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
-    <function group='operator' name='-' return-type='int'>
+    <function group='operator' name='-' return-type='real'>
         <formula>(%1 - %2)</formula>
         <argument type='int' />
         <argument type='real' />
     </function>
-    <function group='operator' name='-' return-type='int'>
+    <function group='operator' name='-' return-type='real'>
       <formula>(%1 - %2)</formula>
       <argument type='real' />
       <argument type='int' />
@@ -429,8 +463,8 @@
       <argument type='real' />
       <argument type='real' />
     </function>
-    <function group='operator' name='/' return-type='real'>
-      <formula>(CASE WHEN %2 = 0 THEN NULL ELSE CAST(%1 AS DOUBLE PRECISION) / %2 END)</formula>
+    <function group='operator' name='/' return-type='int'>
+      <formula>(CASE WHEN %2 = 0 THEN NULL ELSE %1 / %2 END)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
@@ -448,6 +482,21 @@
       <formula>(%1 &lt; %2)</formula>
       <argument type='real' />
       <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
       <formula>(%1 &lt; %2)</formula>
@@ -463,6 +512,21 @@
       <formula>(%1 &lt;= %2)</formula>
       <argument type='real' />
       <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
       <formula>(%1 &lt;= %2)</formula>
@@ -486,6 +550,21 @@
     </function>
     <function group='operator' name='==' return-type='bool'>
       <formula>(%1 = %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
@@ -501,6 +580,21 @@
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
       <formula>(%1 &gt; %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
@@ -513,6 +607,21 @@
       <formula>(%1 &gt;= %2)</formula>
       <argument type='real' />
       <argument type='real' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
       <formula>(%1 &gt;= %2)</formula>
