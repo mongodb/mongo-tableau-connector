@@ -129,9 +129,17 @@
       <formula>STDDEV_SAMP(%1)</formula>
       <argument type='real' />
     </function>
+    <function group='aggregate' name='STDEV' return-type='real'>
+      <formula>STDDEV_SAMP(%1)</formula>
+      <argument type='int' />
+    </function>
     <function group='aggregate' name='STDEVP' return-type='real'>
       <formula>STDDEV_POP(%1)</formula>
       <argument type='real' />
+    </function>
+    <function group='aggregate' name='STDEVP' return-type='real'>
+      <formula>STDDEV_POP(%1)</formula>
+      <argument type='int' />
     </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
       <formula>CAST(%1 AS TIMESTAMP)</formula>
