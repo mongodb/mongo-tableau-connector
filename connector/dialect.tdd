@@ -125,23 +125,36 @@
       <unagg-formula>%1</unagg-formula>
       <argument type='int' />
     </function>
-    <!-- SQL-787
+    <function group='aggregate' name='SUMD' return-type='real'>
+      <formula>SUM(DISTINCT %1)</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='real' />
+    </function>
+    <function group='aggregate' name='SUMD' return-type='int'>
+      <formula>SUM(DISTINCT %1)</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='int' />
+    </function>
     <function group='aggregate' name='STDEV' return-type='real'>
       <formula>STDDEV_SAMP(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
       <argument type='real' />
     </function>
     <function group='aggregate' name='STDEV' return-type='real'>
       <formula>STDDEV_SAMP(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
       <argument type='int' />
     </function>
     <function group='aggregate' name='STDEVP' return-type='real'>
       <formula>STDDEV_POP(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
       <argument type='real' />
     </function>
     <function group='aggregate' name='STDEVP' return-type='real'>
       <formula>STDDEV_POP(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
       <argument type='int' />
-    </function> -->
+    </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
       <formula>CAST(%1 AS TIMESTAMP)</formula>
       <argument type='str' />
@@ -151,19 +164,19 @@
       <argument type='datetime' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
+      <formula>CAST(%1 AS DOUBLE)</formula>
       <argument type='real' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
+      <formula>CAST(%1 AS DOUBLE)</formula>
       <argument type='int' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
+      <formula>CAST(%1 AS DOUBLE)</formula>
       <argument type='str' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
+      <formula>CAST(%1 AS DOUBLE)</formula>
       <argument type='bool' />
     </function>
     <function group='cast' name='INT' return-type='int'>
@@ -664,9 +677,8 @@
     <aggregation value='AGG_AVG'/>
     <aggregation value='AGG_MIN'/>
     <aggregation value='AGG_MAX'/>
-    <!-- SQL-787: investigate failing aggregate functions
     <aggregation value='AGG_STDEV'/>
-    <aggregation value='AGG_STDEVP'/> -->
+    <aggregation value='AGG_STDEVP'/>
     <aggregation value='AGG_YEAR'/>
     <aggregation value='AGG_MONTH'/>
     <aggregation value='AGG_DAY'/>
