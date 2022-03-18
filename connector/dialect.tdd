@@ -172,7 +172,7 @@
       <argument type='int' />
     </function>
     <function group='cast' name='BOOL' return-type='bool'>
-      <formula>CAST(%1 AS BOOL)</formula>
+      <formula>(%1)</formula>
       <argument type='bool' />
     </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
@@ -180,7 +180,7 @@
       <argument type='str' />
     </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
-      <formula>CAST(%1 AS TIMESTAMP)</formula>
+      <formula>(%1)</formula>
       <argument type='datetime' />
     </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
@@ -224,7 +224,7 @@
       <argument type='datetime' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DOUBLE)</formula>
+      <formula>(%1)</formula>
       <argument type='real' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
@@ -248,7 +248,7 @@
       <argument type='real' />
     </function>
     <function group='cast' name='INT' return-type='int'>
-      <formula>CAST(%1 AS INT)</formula>
+      <formula>(%1)</formula>
       <argument type='int' />
     </function>
     <function group='cast' name='INT' return-type='int'>
@@ -276,7 +276,7 @@
       <argument type='bool' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS STRING)</formula>
+      <formula>(%1)</formula>
       <argument type='str' />
     </function>
     <function group='cast' name='STR' return-type='str'>
@@ -323,23 +323,23 @@
       <argument type='datetime' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
-      <formula>%1 IS NULL</formula>
+      <formula>(%1 IS NULL)</formula>
       <argument type='bool' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
-      <formula>%1 IS NULL</formula>
+      <formula>(%1 IS NULL)</formula>
       <argument type='real' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
-      <formula>%1 IS NULL</formula>
+      <formula>(%1 IS NULL)</formula>
       <argument type='int' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
-      <formula>%1 IS NULL</formula>
+      <formula>(%1 IS NULL)</formula>
       <argument type='str' />
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
-      <formula>%1 IS NULL</formula>
+      <formula>(%1 IS NULL)</formula>
       <argument type='datetime' />
     </function>
     <function group='logical' name='NULLIF' return-type='bool'>
@@ -363,332 +363,332 @@
       <argument type='datetime' />
     </function>
     <function group='numeric' name='DIV' return-type='int'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='numeric' name='DIV' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='numeric' name='DIV' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='numeric' name='DIV' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='*' return-type='real'>
-      <formula>%1 * %2</formula>
+      <formula>(%1 * %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='*' return-type='int'>
-      <formula>%1 * %2</formula>
+      <formula>(%1 * %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='*' return-type='real'>
-      <formula>%1 * %2</formula>
+      <formula>(%1 * %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='*' return-type='real'>
-      <formula>%1 * %2</formula>
+      <formula>(%1 * %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='+' return-type='int'>
-      <formula>+%1</formula>
+      <formula>(+%1)</formula>
       <argument type='int' />
     </function>
     <function group='operator' name='+' return-type='real'>
-      <formula>+%1</formula>
+      <formula>(+%1)</formula>
       <argument type='real' />
     </function>
     <function group='operator' name='+' return-type='real'>
-      <formula>%1 + %2</formula>
+      <formula>(%1 + %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='+' return-type='int'>
-      <formula>%1 + %2</formula>
+      <formula>(%1 + %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='+' return-type='real'>
-      <formula>%1 + %2</formula>
+      <formula>(%1 + %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='+' return-type='real'>
-      <formula>%1 + %2</formula>
+      <formula>(%1 + %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='-' return-type='real'>
-      <formula>-%1</formula>
+      <formula>(-%1)</formula>
       <argument type='real' />
     </function>
     <function group='operator' name='-' return-type='int'>
-      <formula>-%1</formula>
+      <formula>(-%1)</formula>
       <argument type='int' />
     </function>
     <function group='operator' name='-' return-type='real'>
-      <formula>%1 - %2</formula>
+      <formula>(%1 - %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='-' return-type='int'>
-      <formula>%1 - %2</formula>
+      <formula>(%1 - %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='-' return-type='real'>
-      <formula>%1 - %2</formula>
+      <formula>(%1 - %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='-' return-type='real'>
-      <formula>%1 - %2</formula>
+      <formula>(%1 - %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='/' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='/' return-type='int'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='/' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='/' return-type='real'>
-      <formula>%1 / %2</formula>
+      <formula>(%1 / %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>%1 &lt; %2</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>%1 &lt;= %2</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>%1 = %2</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='!' return-type='bool'>
-      <formula>NOT %1</formula>
+      <formula>(NOT %1)</formula>
       <argument type='bool' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>%1 != %2</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>%1 &gt; %2</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>%1 &gt;= %2</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
