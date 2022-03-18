@@ -299,7 +299,7 @@
       <formula>CURRENT_TIMESTAMP</formula>
     </function>
     <function group='date' name='CURRENT_TIMESTAMP' return-type='datetime'>
-      <formula>CURRENT_TIMESTAMP %1</formula>
+      <formula>CURRENT_TIMESTAMP(%1)</formula>
       <argument type='int' />
     </function>
     <function group='date' name='DAY' return-type='int'>
