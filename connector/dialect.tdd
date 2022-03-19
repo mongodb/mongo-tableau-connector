@@ -700,6 +700,10 @@
       <formula>CHAR_LENGTH(%1)</formula>
       <argument type='str' />
     </function>
+    <function group='string' name='LEN' return-type='int'>
+      <formula>CHAR_LENGTH(%1)</formula>
+      <argument type='str' />
+    </function>
     <function group='string' name='LOWER' return-type='str'>
       <formula>LOWER(%1)</formula>
       <argument type='str' />
