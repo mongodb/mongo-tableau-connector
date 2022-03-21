@@ -241,10 +241,6 @@
     </function>
     <function group='cast' name='INT' return-type='int'>
       <formula>CAST(%1 AS INT)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='cast' name='INT' return-type='int'>
-      <formula>CAST(%1 AS INT)</formula>
       <argument type='real' />
     </function>
     <function group='cast' name='INT' return-type='int'>
