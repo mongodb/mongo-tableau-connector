@@ -125,16 +125,6 @@
       <unagg-formula>%1</unagg-formula>
       <argument type='int' />
     </function>
-    <function group='aggregate' name='SUMD' return-type='real'>
-      <formula>SUM(DISTINCT %1)</formula>
-      <unagg-formula>%1</unagg-formula>
-      <argument type='real' />
-    </function>
-    <function group='aggregate' name='SUMD' return-type='int'>
-      <formula>SUM(DISTINCT %1)</formula>
-      <unagg-formula>%1</unagg-formula>
-      <argument type='int' />
-    </function>
     <function group='aggregate' name='STDEV' return-type='real'>
       <formula>STDDEV_SAMP(%1)</formula>
       <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
@@ -155,26 +145,6 @@
       <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
       <argument type='int' />
     </function>
-    <function group='cast' name='BOOL' return-type='bool'>
-      <formula>CAST(%1 AS BOOL)</formula>
-      <argument type='str' />
-    </function>
-    <function group='cast' name='BOOL' return-type='bool'>
-      <formula>CAST(%1 AS BOOL)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='cast' name='BOOL' return-type='bool'>
-      <formula>CAST(%1 AS BOOL)</formula>
-      <argument type='real' />
-    </function>
-    <function group='cast' name='BOOL' return-type='bool'>
-      <formula>CAST(%1 AS BOOL)</formula>
-      <argument type='int' />
-    </function>
-    <function group='cast' name='BOOL' return-type='bool'>
-      <formula>(%1)</formula>
-      <argument type='bool' />
-    </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
       <formula>CAST(%1 AS TIMESTAMP)</formula>
       <argument type='str' />
@@ -193,26 +163,6 @@
     </function>
     <function group='cast' name='DATETIME' return-type='datetime'>
       <formula>CAST(%1 AS TIMESTAMP)</formula>
-      <argument type='bool' />
-    </function>
-    <function group='cast' name='DECIMAL' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
-      <argument type='str' />
-    </function>
-    <function group='cast' name='DECIMAL' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='cast' name='DECIMAL' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
-      <argument type='real' />
-    </function>
-    <function group='cast' name='DECIMAL' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
-      <argument type='int' />
-    </function>
-    <function group='cast' name='DECIMAL' return-type='real'>
-      <formula>CAST(%1 AS DECIMAL)</formula>
       <argument type='bool' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
@@ -251,26 +201,6 @@
       <formula>CAST(%1 AS INT)</formula>
       <argument type='bool' />
     </function>
-    <function group='cast' name='LONG' return-type='int'>
-      <formula>CAST(%1 AS LONG)</formula>
-      <argument type='str' />
-    </function>
-    <function group='cast' name='LONG' return-type='int'>
-      <formula>CAST(%1 AS LONG)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='cast' name='LONG' return-type='int'>
-      <formula>CAST(%1 AS LONG)</formula>
-      <argument type='real' />
-    </function>
-    <function group='cast' name='LONG' return-type='int'>
-      <formula>CAST(%1 AS LONG)</formula>
-      <argument type='int' />
-    </function>
-    <function group='cast' name='LONG' return-type='int'>
-      <formula>CAST(%1 AS LONG)</formula>
-      <argument type='bool' />
-    </function>
     <function group='cast' name='STR' return-type='str'>
       <formula>(%1)</formula>
       <argument type='str' />
@@ -290,21 +220,9 @@
     <function group='cast' name='STR' return-type='str'>
       <formula>CAST(%1 AS STRING)</formula>
       <argument type='bool' />
-    </function>
-    <function group='date' name='CURRENT_TIMESTAMP' return-type='datetime'>
-      <formula>CURRENT_TIMESTAMP</formula>
-    </function>
-    <function group='date' name='CURRENT_TIMESTAMP' return-type='datetime'>
-      <formula>CURRENT_TIMESTAMP(%1)</formula>
-      <argument type='int' />
     </function>
     <function group='date' name='DAY' return-type='int'>
       <formula>EXTRACT(DAY FROM %1)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='date' name='EXTRACT' return-type='int'>
-      <formula>EXTRACT(%1 FROM %2)</formula>
-      <argument type='str' />
       <argument type='datetime' />
     </function>
     <function group='date' name='MONTH' return-type='int'>
@@ -336,26 +254,6 @@
     </function>
     <function group='logical' name='ISNULL' return-type='bool'>
       <formula>(%1 IS NULL)</formula>
-      <argument type='datetime' />
-    </function>
-    <function group='logical' name='NULLIF' return-type='bool'>
-      <formula>NULLIF(%1)</formula>
-      <argument type='bool' />
-    </function>
-    <function group='logical' name='NULLIF' return-type='real'>
-      <formula>NULLIF(%1)</formula>
-      <argument type='real' />
-    </function>
-    <function group='logical' name='NULLIF' return-type='int'>
-      <formula>NULLIF(%1)</formula>
-      <argument type='int' />
-    </function>
-    <function group='logical' name='NULLIF' return-type='str'>
-      <formula>NULLIF(%1)</formula>
-      <argument type='str' />
-    </function>
-    <function group='logical' name='NULLIF' return-type='datetime'>
-      <formula>NULLIF(%1)</formula>
       <argument type='datetime' />
     </function>
     <function group='numeric' name='DIV' return-type='int'>
@@ -688,14 +586,6 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
-    <function group='string' name='BIT_LENGTH' return-type='int'>
-      <formula>BIT_LENGTH(%1)</formula>
-      <argument type='str' />
-    </function>
-    <function group='string' name='CHAR_LENGTH' return-type='int'>
-      <formula>CHAR_LENGTH(%1)</formula>
-      <argument type='str' />
-    </function>
     <function group='string' name='LEN' return-type='int'>
       <formula>CHAR_LENGTH(%1)</formula>
       <argument type='str' />
@@ -711,26 +601,6 @@
     <function group='string' name='RTRIM' return-type='str'>
       <formula>TRIM(TRAILING FROM %1)</formula>
       <argument type='str' />
-    </function>
-    <function group='string' name='POSITION' return-type='int'>
-      <formula>POSITION(%1 IN %2)</formula>
-      <argument type='str' />
-      <argument type='str' />
-    </function>
-    <function group='string' name='OCTET_LENGTH' return-type='int'>
-      <formula>OCTET_LENGTH(%1)</formula>
-      <argument type='str' />
-    </function>
-    <function group='string' name='SUBSTRING' return-type='str'>
-      <formula>SUBSTRING(%1 FROM %2)</formula>
-      <argument type='str' />
-      <argument type='int' />
-    </function>
-    <function group='string' name='SUBSTRING' return-type='str'>
-      <formula>SUBSTRING(%1 FROM %2 FOR %3)</formula>
-      <argument type='str' />
-      <argument type='int' />
-      <argument type='int' />
     </function>
     <function group='string' name='TRIM' return-type='str'>
       <formula>TRIM(%1)</formula>
