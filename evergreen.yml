@@ -22,10 +22,34 @@ timeout:
         ls -la
 
 functions:
+  "build taco bundle":
+    - command: shell.exec
+      type: test
+      params:
+        shell: bash
+        working_dir: mongo-tableau-connector
+        script: |
+          ${prepare_shell}
+          source ./.venv/bin/activate
+
+          # Running packager from connector-packager dir
+          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
+          --verbose ../../connector/ --dest ../../package --log ../../logs 2>&1 | tee /dev/stdout \
+          | grep "Taco packaged" >/dev/null)
+
   "fetch source":
     - command: git.get_project
       params:
         directory: mongo-tableau-connector
+
+  "fetch packaged connector":
+    - command: s3.get
+      params:
+        aws_key: ${aws_key}
+        aws_secret: ${aws_secret}
+        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc.taco
+        local_file: mongo-tableau-connector/mongodb_jdbc.taco
+        bucket: mciuploads
 
   "generate expansions":
     - command: shell.exec
@@ -41,17 +65,6 @@ functions:
       params:
         file: mongo-tableau-connector/expansions.yml
 
-  "setup python virtual environment":
-    - command: shell.exec
-      params:
-        shell: bash
-        working_dir: mongo-tableau-connector
-        script: |
-          ${prepare_shell}
-
-          python3 -m venv .venv
-
-
   "install connector plugin sdk":
     - command: shell.exec
       params:
@@ -65,34 +78,40 @@ functions:
           source ./.venv/bin/activate
           ( cd connector-plugin-sdk/connector-packager && python3 setup.py install )
 
-  "validate connector XML format":
+  "setup python virtual environment":
     - command: shell.exec
-      type: test
       params:
         shell: bash
         working_dir: mongo-tableau-connector
         script: |
           ${prepare_shell}
-          source ./.venv/bin/activate
-          # Running packager validation step
-          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
-          --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
-          | grep "Validation succeeded." >/dev/null)
 
-  "build taco bundle":
+          python3 -m venv .venv
+
+  "sign archive":
     - command: shell.exec
-      type: test
+      type: system
       params:
-        shell: bash
         working_dir: mongo-tableau-connector
+        silent: true
         script: |
           ${prepare_shell}
-          source ./.venv/bin/activate
 
-          # Running packager from connector-packager dir
-          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
-          --verbose ../../connector/ --dest ../../package --log ../../logs 2>&1 | tee /dev/stdout \
-          | grep "Taco packaged" >/dev/null)
+          echo '${signing_auth_token}' > ./signing_auth_token
+    - command: shell.exec
+      type: system
+      params:
+        working_dir: mongo-tableau-connector
+        silent: false
+        script: |
+          ${prepare_shell}
+
+          /usr/local/bin/notary-client.py \
+            --key-name "tableu-connector" \
+            --auth-token-file ./signing_auth_token \
+            --comment 'Evergreen Automated Signing (mongo-tableau-connector)' \
+            --notary-url http://notary-service.build.10gen.cc:5000 \
+            mongodb_jdbc.taco
 
   "upload packaged connector":
     - command: s3.put
@@ -118,15 +137,36 @@ functions:
         permissions: public-read
         display_name: "Tableau Connector Packaging Logfile"
 
+  "upload signed connector":
+    - command: s3.put
+      params:
+        aws_key: ${aws_key}
+        aws_secret: ${aws_secret}
+        local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
+        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc-signed.taco
+        bucket: mciuploads
+        permissions: public-read
+        content_type: application/octet-stream
+
+  "validate connector XML format":
+    - command: shell.exec
+      type: test
+      params:
+        shell: bash
+        working_dir: mongo-tableau-connector
+        script: |
+          ${prepare_shell}
+          source ./.venv/bin/activate
+          # Running packager validation step
+          ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
+          --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
+          | grep "Validation succeeded." >/dev/null)
+
 pre:
   - func: "fetch source"
   - func: "setup python virtual environment"
   - func: "generate expansions"
   - func: "install connector plugin sdk"
-
-post:
-  - func: "upload packager log file"
-
 
 tasks:
   - name: compile
@@ -134,12 +174,21 @@ tasks:
       - func: "validate connector XML format"
       - func: "build taco bundle"
       - func: "upload packaged connector"
+      - func: "upload packager log file"
+
+  - name: sign
+    depends_on:
+      - name: compile
+    commands:
+      - func: "fetch packaged connector"
+      - func: "sign archive"
+      - func: "upload signed connector"
 
 
 buildvariants:
-
   - name: ubuntu2004
     display_name: "Ubuntu 20.04"
     run_on: [ ubuntu2004 ]
     tasks:
       - name: compile
+      - name: sign
