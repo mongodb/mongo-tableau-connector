@@ -10,4 +10,28 @@
 
   <field name="password" label="Password" value-type="string" category="authentication" secure="true" />
 
+  <field name="v-loglevel" label="JDBC Log Level" value-type="selection" default-value="log-off" category="general" >
+    <selection-group>
+      <option value="OFF" label="OFF" />
+      <option value="SEVERE" label="SEVERE" />
+      <option value="WARNING" label="WARNING" />
+      <option value="INFO" label="INFO" />
+      <option value="FINE" label="FINE" />
+      <option value="FINER" label="FINER" />
+    </selection-group>
+  </field>
+
+  <field name="v-logdir-option" label="Custom JDBC Log Directory" value-type="boolean" category="general"  >
+    <boolean-options>
+      <false-value value="" />
+      <true-value value="required" />
+    </boolean-options>
+  </field>
+
+  <field name="v-log-directory" label="" value-type="string" default-value="" category="general"  >
+    <conditions>
+      <condition field="v-logdir-option" value="required"/>
+    </conditions>
+  </field>
+
 </connection-fields>
