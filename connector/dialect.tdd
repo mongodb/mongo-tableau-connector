@@ -127,12 +127,12 @@
     </function>
     <function group='aggregate' name='STDEV' return-type='real'>
       <formula>STDDEV_SAMP(%1)</formula>
-      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
+      <unagg-formula>NULL</unagg-formula>
       <argument type='real' />
     </function>
     <function group='aggregate' name='STDEV' return-type='real'>
       <formula>STDDEV_SAMP(%1)</formula>
-      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0 END)</unagg-formula>
+      <unagg-formula>NULL</unagg-formula>
       <argument type='int' />
     </function>
     <function group='aggregate' name='STDEVP' return-type='real'>
@@ -147,7 +147,7 @@
     </function>
     <function group='aggregate' name='VAR' return-type='real'>
       <formula>(STDDEV_SAMP(%1) * STDDEV_SAMP(%1))</formula>
-      <unagg-formula>(CASE WHEN %1 IS NULL THEN NULL ELSE 0.0 END)</unagg-formula>
+      <unagg-formula>NULL</unagg-formula>
       <argument type='real' />
     </function>
     <function group='aggregate' name='VARP' return-type='real'>
