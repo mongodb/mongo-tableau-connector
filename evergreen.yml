@@ -68,14 +68,19 @@ functions:
         script: |
           export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always)
           export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=translators-connectors-releases
-          git describe --exact-match HEAD || MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=mciuploads
+          export UPDATE_PLUGIN_VERSION=true
+          git describe --exact-match HEAD || MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=mciuploads &&
+            UPDATE_PLUGIN_VERSION=false
 
           cat <<EOT > expansions.yml
           MONGO_TABLEAU_CONNECTOR_VERSION: "$MONGO_TABLEAU_CONNECTOR_VERSION"
           MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET: "$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
+          UPDATE_PLUGIN_VERSION: "$UPDATE_PLUGIN_VERSION"
           prepare_shell: |
             set -o errexit
             export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
+            export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET="$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
+            export UPDATE_PLUGIN_VERSION="$UPDATE_PLUGIN_VERSION"
           EOT
     - command: expansions.update
       params:
@@ -128,6 +133,20 @@ functions:
             --comment 'Evergreen Automated Signing (mongo-tableau-connector)' \
             --notary-url http://notary-service.build.10gen.cc:5000 \
             mongodb_jdbc.taco
+
+  "update plugin-version":
+    - command: shell.exec
+      type: system
+      params:
+        working_dir: mongo-tableau-connector
+        silent: false
+        script: |
+          ${prepare_shell}
+
+          if $UPDATE_PLUGIN_VERSION; then
+            sed -i "s/plugin-version='0.0.0'/plugin-version='${MONGO_TABLEAU_CONNECTOR_VERSION}'/g" \
+              connector/manifest.xml
+          fi
 
   "upload packaged connector":
     - command: s3.put
@@ -187,8 +206,8 @@ functions:
           source ./.venv/bin/activate
           # Running packager validation step
           ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
-          --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
-          | grep "Validation succeeded." >/dev/null)
+             --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
+             | grep "Validation succeeded." >/dev/null)
 
 pre:
   - func: "fetch source"
@@ -199,6 +218,7 @@ pre:
 tasks:
   - name: compile
     commands:
+      - func: "update plugin-version"
       - func: "validate connector XML format"
       - func: "build taco bundle"
       - func: "upload packaged connector"

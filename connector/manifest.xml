@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.1.0' name='MongoDB Atlas' version='18.1' min-version-tableau='2020.4'>
+<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoDB Atlas' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
       <company name="MongoDB"/>
       <support-link url="https://support.mongodb.com"/>
