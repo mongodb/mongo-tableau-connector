@@ -692,12 +692,12 @@
      <argument type='int' />
     </function>
     <function group='string' name='RIGHT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) WHEN %2 &gt;= CHAR_LENGTH(%1) THEN %1 ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - %2 - 1) FOR %2) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) WHEN %2 &gt;= CHAR_LENGTH(%1) THEN %1 ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - %2) FOR %2) END)</formula>
      <argument type='str' />
      <argument type='int' />
     </function>
     <function group='string' name='RIGHT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) WHEN %2 &gt;= CHAR_LENGTH(%1) THEN %1 ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - (%2)::INT - 1) FOR (%2)::INT) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) WHEN %2 &gt;= CHAR_LENGTH(%1) THEN %1 ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - (%2)::INT) FOR (%2)::INT) END)</formula>
      <argument type='str' />
      <argument type='real' />
     </function>
