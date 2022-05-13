@@ -57,9 +57,13 @@ functions:
         shell: bash
         working_dir: mongo-tableau-connector
         script: |
+          export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always)
+
           cat <<EOT > expansions.yml
+          MONGO_TABLEAU_CONNECTOR_VERSION: "$MONGO_TABLEAU_CONNECTOR_VERSION"
           prepare_shell: |
             set -o errexit
+            export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
           EOT
     - command: expansions.update
       params:
@@ -112,6 +116,19 @@ functions:
             --comment 'Evergreen Automated Signing (mongo-tableau-connector)' \
             --notary-url http://notary-service.build.10gen.cc:5000 \
             mongodb_jdbc.taco
+
+  "update plugin-version":
+    - command: shell.exec
+      type: system
+      params:
+        working_dir: mongo-tableau-connector
+        silent: false
+        script: |
+          ${prepare_shell}
+
+          sed -i "s/tableau-connector|0.0.0/tableau-connector|${MONGO_TABLEAU_CONNECTOR_VERSION}/g" \
+            connector/connectionProperties.js
+
 
   "upload packaged connector":
     - command: s3.put
@@ -171,6 +188,7 @@ pre:
 tasks:
   - name: compile
     commands:
+      - func: "update plugin-version"
       - func: "validate connector XML format"
       - func: "build taco bundle"
       - func: "upload packaged connector"
