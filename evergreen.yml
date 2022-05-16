@@ -66,7 +66,7 @@ functions:
         shell: bash
         working_dir: mongo-tableau-connector
         script: |
-          export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always)
+          export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always | sed 's/^v//g')
           export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=translators-connectors-releases
           export UPDATE_PLUGIN_VERSION=true
           git describe --exact-match HEAD || MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=mciuploads &&
