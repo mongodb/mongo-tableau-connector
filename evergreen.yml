@@ -51,19 +51,36 @@ functions:
         local_file: mongo-tableau-connector/mongodb_jdbc.taco
         bucket: mciuploads
 
+  "fetch signed connector":
+    - command: s3.get
+      params:
+        aws_key: ${aws_key}
+        aws_secret: ${aws_secret}
+        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc-signed.taco
+        local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
+        bucket: mciuploads
+
   "generate expansions":
     - command: shell.exec
       params:
         shell: bash
         working_dir: mongo-tableau-connector
         script: |
-          export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always)
+          export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always | sed 's/^v//g')
+          export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=translators-connectors-releases
+          export UPDATE_PLUGIN_VERSION=true
+          git describe --exact-match HEAD || MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=mciuploads &&
+            UPDATE_PLUGIN_VERSION=false
 
           cat <<EOT > expansions.yml
           MONGO_TABLEAU_CONNECTOR_VERSION: "$MONGO_TABLEAU_CONNECTOR_VERSION"
+          MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET: "$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
+          UPDATE_PLUGIN_VERSION: "$UPDATE_PLUGIN_VERSION"
           prepare_shell: |
             set -o errexit
             export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
+            export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET="$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
+            export UPDATE_PLUGIN_VERSION="$UPDATE_PLUGIN_VERSION"
           EOT
     - command: expansions.update
       params:
@@ -126,9 +143,13 @@ functions:
         script: |
           ${prepare_shell}
 
-          sed -i "s/tableau-connector|0.0.0/tableau-connector|${MONGO_TABLEAU_CONNECTOR_VERSION}/g" \
+          sed -i "s/tableau-connector+0.0.0/tableau-connector+${MONGO_TABLEAU_CONNECTOR_VERSION}/g" \
             connector/connectionProperties.js
 
+          if $UPDATE_PLUGIN_VERSION; then
+            sed -i "s/plugin-version='0.0.0'/plugin-version='${MONGO_TABLEAU_CONNECTOR_VERSION}'/g" \
+              connector/manifest.xml
+          fi
 
   "upload packaged connector":
     - command: s3.put
@@ -154,6 +175,18 @@ functions:
         permissions: public-read
         display_name: "Tableau Connector Packaging Logfile"
 
+  "upload release":
+    - command: s3.put
+      params:
+        aws_key: ${aws_key}
+        aws_secret: ${aws_secret}
+        local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
+        remote_file: mongo-tableau-connector/mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
+        bucket: ${MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET}
+        permissions: public-read
+        display_name: mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
+        content_type: application/octet-stream
+
   "upload signed connector":
     - command: s3.put
       params:
@@ -176,8 +209,8 @@ functions:
           source ./.venv/bin/activate
           # Running packager validation step
           ( cd connector-plugin-sdk/connector-packager && python3 -m connector_packager.package \
-          --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
-          | grep "Validation succeeded." >/dev/null)
+             --validate-only --verbose ../../connector/ --log ../../logs 2>&1 | tee /dev/stdout \
+             | grep "Validation succeeded." >/dev/null)
 
 pre:
   - func: "fetch source"
@@ -202,6 +235,13 @@ tasks:
       - func: "sign archive"
       - func: "upload signed connector"
 
+  - name: release
+    depends_on:
+      - name: sign
+    commands:
+      - func: "fetch signed connector"
+      - func: "upload release"
+
 
 buildvariants:
   - name: ubuntu2004
@@ -210,3 +250,4 @@ buildvariants:
     tasks:
       - name: compile
       - name: sign
+      - name: release
