@@ -4,7 +4,7 @@
     props["password"] = attr[connectionHelper.attributePassword];
     props["database"] = attr[connectionHelper.attributeDatabase];
     props["dialect"] = "mongosql";
-    props["ClientInfo"] = "tableau-connector|0.0.0";
+    props["ClientInfo"] = "tableau-connector+0.0.0";
 
     props["LogDir"] = "console";
     if (attr["v-log-directory"] != null && attr["v-log-directory"] !== "") {
