@@ -143,6 +143,9 @@ functions:
         script: |
           ${prepare_shell}
 
+          sed -i "s/tableau-connector+0.0.0/tableau-connector+${MONGO_TABLEAU_CONNECTOR_VERSION}/g" \
+            connector/connectionProperties.js
+
           if $UPDATE_PLUGIN_VERSION; then
             sed -i "s/plugin-version='0.0.0'/plugin-version='${MONGO_TABLEAU_CONNECTOR_VERSION}'/g" \
               connector/manifest.xml
