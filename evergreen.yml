@@ -67,19 +67,15 @@ functions:
         working_dir: mongo-tableau-connector
         script: |
           export MONGO_TABLEAU_CONNECTOR_VERSION=$(git describe --always | sed 's/^v//g')
-          export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=translators-connectors-releases
           export UPDATE_PLUGIN_VERSION=true
-          git describe --exact-match HEAD || MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET=mciuploads &&
-            UPDATE_PLUGIN_VERSION=false
+          git describe --exact-match HEAD || UPDATE_PLUGIN_VERSION=false
 
           cat <<EOT > expansions.yml
           MONGO_TABLEAU_CONNECTOR_VERSION: "$MONGO_TABLEAU_CONNECTOR_VERSION"
-          MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET: "$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
           UPDATE_PLUGIN_VERSION: "$UPDATE_PLUGIN_VERSION"
           prepare_shell: |
             set -o errexit
             export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
-            export MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET="$MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET"
             export UPDATE_PLUGIN_VERSION="$UPDATE_PLUGIN_VERSION"
           EOT
     - command: expansions.update
@@ -178,11 +174,11 @@ functions:
   "upload release":
     - command: s3.put
       params:
-        aws_key: ${aws_key}
-        aws_secret: ${aws_secret}
+        aws_key: ${release_aws_key}
+        aws_secret: ${release_aws_secret}
         local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
         remote_file: mongo-tableau-connector/mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
-        bucket: ${MONGO_TABLEAU_CONNECTOR_RELEASE_BUCKET}
+        bucket: translators-connectors-releases
         permissions: public-read
         display_name: mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
         content_type: application/octet-stream
@@ -236,6 +232,7 @@ tasks:
       - func: "upload signed connector"
 
   - name: release
+    git_tag_only: true
     depends_on:
       - name: sign
     commands:
