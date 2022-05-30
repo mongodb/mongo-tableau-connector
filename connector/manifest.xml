@@ -18,8 +18,8 @@
       <customization name="CAP_SELECT_INTO" value="no"/>
       <customization name="CAP_SELECT_TOP_INTO" value="no"/>
       <!-- String Splits -->
-      <customization name="CAP_SUPPORTS_SPLIT_FROM_LEFT" value="no"/>
-      <customization name="CAP_SUPPORTS_SPLIT_FROM_RIGHT" value="no"/>
+      <customization name="CAP_SUPPORTS_SPLIT_FROM_LEFT" value="yes"/>
+      <customization name="CAP_SUPPORTS_SPLIT_FROM_RIGHT" value="yes"/>
       <!-- Initial SQL-->
       <customization name="CAP_SUPPORTS_INITIAL_SQL" value="yes"/>
       <!-- Query -->
