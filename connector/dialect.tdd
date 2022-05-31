@@ -707,8 +707,8 @@
      <argument type='str' />
     </function>
     <native-split-function>
-      <formula part='left'>CASE WHEN %3 = 0 THEN NULL WHEN SPLIT(%1,%2, (%3 - 1)) END</formula>
-      <formula part='right'>CASE WHEN %3 = 0 THEN NULL WHEN SPLIT(%1,%2, %3) END</formula>
+      <formula part='left'>CASE WHEN %3 = 0 THEN NULL ELSE SPLIT(%1,%2, (%3 - 1)) END</formula>
+      <formula part='right'>CASE WHEN %3 = 0 THEN NULL ELSE SPLIT(%1,%2, %3) END</formula>
     </native-split-function>
   </function-map>
   <supported-aggregations>
