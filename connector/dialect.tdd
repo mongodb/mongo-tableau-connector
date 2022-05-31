@@ -286,6 +286,70 @@
       <argument type='real' />
       <argument type='int' />
     </function>
+    <function group='numeric' name='LN' return-type='real'>
+      <formula>LOG(%1, 2.718281828459046)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='LN' return-type='real'>
+    <formula>LOG(%1, 2.718281828459046)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%1, 10)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%1, 10)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+    <formula>LOG(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='ROUND' return-type='int'>
+      <formula>ROUND(%1, 0)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='ROUND' return-type='real'>
+      <formula>ROUND(%1, 0)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='ROUND' return-type='int'>
+      <formula>ROUND(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+   <function group='numeric' name='ROUND' return-type='real'>
+      <formula>ROUND(%1, (%2)::INT)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='ROUND' return-type='real'>
+      <formula>ROUND(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='ROUND' return-type='real'>
+      <formula>ROUND(%1, (%2)::INT)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
     <function group='operator' name='*' return-type='real'>
       <formula>(%1 * %2)</formula>
       <argument type='real' />
