@@ -27,6 +27,7 @@
       <customization name="CAP_QUERY_BOOLEXPR_TO_INTEXPR" value="no"/>
       <customization name="CAP_QUERY_CASE_MATCHES_NULL" value="yes"/>
       <customization name="CAP_QUERY_CASE_OUT_NO_BOOL_OPS" value="no"/>
+      <customization name="CAP_QUERY_GROUP_BY_ALIAS" value="yes"/>
       <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes"/>
       <customization name="CAP_QUERY_HAVING_UNSUPPORTED" value="no"/>
       <customization name="CAP_QUERY_INCLUDE_GROUP_BY_COLUMNS_IN_SELECT" value="no"/>
