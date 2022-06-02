@@ -271,15 +271,15 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
-    <function group='logical' name='IFNULL' return-type='real'>
-      <formula>COALESCE(%1, %2)</formula>
-      <argument type='real' />
-      <argument type='real' />
-    </function>
     <function group='logical' name='IFNULL' return-type='int'>
       <formula>COALESCE(%1, %2)</formula>
       <argument type='int' />
       <argument type='int' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='real'>
+      <formula>COALESCE(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='real' />
     </function>
     <function group='logical' name='IFNULL' return-type='str'>
       <formula>COALESCE(%1, %2)</formula>
