@@ -377,10 +377,6 @@
       <argument type='real' />
     </function>
     <function group='numeric' name='CEILING' return-type='int'>
-      <formula>CAST(CEIL(%1) AS INT)</formula>
-      <argument type='real' />
-    </function>
-    <function group='numeric' name='CEILING' return-type='int'>
       <formula>CEIL(%1)</formula>
       <argument type='int' />
     </function>
@@ -438,10 +434,6 @@
     </function>
     <function group='numeric' name='FLOOR' return-type='real'>
       <formula>FLOOR(%1)</formula>
-      <argument type='real' />
-    </function>
-    <function group='numeric' name='FLOOR' return-type='int'>
-      <formula>CAST(FLOOR(%1) AS INT)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='FLOOR' return-type='int'>
@@ -509,11 +501,6 @@
     </function>
     <function group='numeric' name='POWER' return-type='int'>
       <formula>POW(%1,%2)</formula>
-      <argument type='int' />
-      <argument type='int' />
-    </function>
-    <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(CAST(%1 AS DOUBLE),%2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
