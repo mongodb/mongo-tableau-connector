@@ -504,6 +504,9 @@
       <argument type='real' />
       <argument type='real' />
     </function>
+    <function group='numeric' name='PI' return-type='real'>
+      <formula>3.141592653589793</formula>
+    </function>
     <function group='numeric' name='POWER' return-type='int'>
       <formula>POW(%1,%2)</formula>
       <argument type='int' />
@@ -590,11 +593,11 @@
       <argument type='int' />
     </function>
     <function group='numeric' name='SQRT' return-type='real'>
-      <formula>TABLEAU.SQRT(%1)</formula>
+      <formula>SQRT(%1)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='SQRT' return-type='real'>
-      <formula>TABLEAU.SQRT(%1)</formula>
+      <formula>SQRT(%1)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='TAN' return-type='real'>
