@@ -1,13 +1,43 @@
 # TDVT datasets
 
-## Import the datasets
+## Import the datasets in your cluster
 ### Calcs
 ```
-mongoimport --uri "{your connection URL}" --db=tdvt --drop --collection calcs --type=json --file={Path to tdvt/datasets directory}/Calcs.json
+mongoimport --uri "{your connection URL}" --db=tdvt --drop --collection Calcs --type=json --file={Path to tdvt/datasets directory}/Calcs.json
 ```
 ### Staples
 ```
-mongoimport --uri "{your connection URL}" --db=tdvt --drop --collection calcs --type=json --file={Path to tdvt/datasets directory}/Staples.json
+mongoimport --uri "{your connection URL}" --db=tdvt --drop --collection Staples --type=json --file={Path to tdvt/datasets directory}/Staples.json
+```
+
+## Configure your Data Federation
+Add the following to `databases`
+```
+{
+    "name":"tdvt",
+    "collections":[
+        {
+            "name":"Staples",
+            "dataSources":[
+                {
+                    "collection":"Staples",
+                    "storeName":"{your store name}",
+                    "database":"tdvt"
+                }
+            ]
+        },
+        {
+            "name":"Calcs",
+            "dataSources":[
+                {
+                    "collection":"Calcs",
+                    "storeName":"{your store name}",
+                    "database":"tdvt"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ## Set the schemas
