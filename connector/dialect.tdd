@@ -364,6 +364,46 @@
       <formula>COALESCE(%1, 0)</formula>
       <argument type='int' />
     </function>
+    <function group='numeric' name='ABS' return-type='real'>
+      <formula>ABS(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='ABS' return-type='int'>
+      <formula>ABS(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='CEILING' return-type='real'>
+      <formula>CEIL(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='CEILING' return-type='int'>
+      <formula>CEIL(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='COS' return-type='real'>
+      <formula>COS(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='COS' return-type='real'>
+      <formula>COS(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='COT' return-type='real'>
+      <formula>1/TAN(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='COT' return-type='real'>
+      <formula>1/TAN(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='DEGREES' return-type='real'>
+      <formula>DEGREES(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='DEGREES' return-type='real'>
+      <formula>DEGREES(%1)</formula>
+      <argument type='int' />
+    </function>
     <function group='numeric' name='DIV' return-type='int'>
       <formula>(%1 / %2)</formula>
       <argument type='int' />
@@ -382,6 +422,22 @@
     <function group='numeric' name='DIV' return-type='real'>
       <formula>(%1 / %2)</formula>
       <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='EXP' return-type='real'>
+      <formula>POW(2.718281828459046, %1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='EXP' return-type='real'>
+      <formula>POW(2.718281828459046, %1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='FLOOR' return-type='real'>
+      <formula>FLOOR(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='FLOOR' return-type='int'>
+      <formula>FLOOR(%1)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='LN' return-type='real'>
@@ -420,6 +476,57 @@
       <argument type='real' />
       <argument type='int' />
     </function>
+    <function group='numeric' name='MOD' return-type='int'>
+      <formula>MOD(%1,%2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='MOD' return-type='real'>
+      <formula>MOD(%1,%2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='MOD' return-type='real'>
+      <formula>MOD(%1,%2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='MOD' return-type='real'>
+      <formula>MOD(%1,%2)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='PI' return-type='real'>
+      <formula>3.141592653589793</formula>
+    </function>
+    <function group='numeric' name='POWER' return-type='int'>
+      <formula>POW(%1,%2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='POWER' return-type='real'>
+      <formula>POW(%1,%2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='POWER' return-type='real'>
+      <formula>POW(%1,%2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='POWER' return-type='real'>
+      <formula>POW(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='RADIANS' return-type='real'>
+      <formula>RADIANS(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='RADIANS' return-type='real'>
+      <formula>RADIANS(%1)</formula>
+      <argument type='real' />
+    </function>
     <function group='numeric' name='ROUND' return-type='int'>
       <formula>ROUND(%1, 0)</formula>
       <argument type='int' />
@@ -446,6 +553,46 @@
     <function group='numeric' name='ROUND' return-type='real'>
       <formula>ROUND(%1, (%2)::INT)</formula>
       <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='SIGN' return-type='int'>
+      <formula>CASE WHEN %1 IS null THEN null WHEN %1 &gt; 0 THEN 1 WHEN %1 &lt; 0 THEN -1 ELSE 0 END</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='SIGN' return-type='int'>
+      <formula>CASE WHEN %1 IS null THEN null WHEN %1 &gt; 0 THEN 1 WHEN %1 &lt; 0 THEN -1 ELSE 0 END</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='SIN' return-type='real'>
+      <formula>SIN(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='SIN' return-type='real'>
+      <formula>SIN(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='SQUARE' return-type='real'>
+      <formula>POW(%1, 2) </formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='SQUARE' return-type='int'>
+      <formula>POW(%1, 2) </formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='SQRT' return-type='real'>
+      <formula>SQRT(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='SQRT' return-type='real'>
+      <formula>SQRT(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='TAN' return-type='real'>
+      <formula>TAN(%1)</formula>
+      <argument type='int' />
+    </function>
+    <function group='numeric' name='TAN' return-type='real'>
+      <formula>TAN(%1)</formula>
       <argument type='real' />
     </function>
     <function group='operator' name='*' return-type='real'>
@@ -762,6 +909,46 @@
       <formula>(%1 OR %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
+    </function>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>POW(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>POW(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>POW(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='^^' return-type='real'>
+      <formula>POW(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='%' return-type='int'>
+      <formula>MOD(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='%' return-type='real'>
+      <formula>MOD(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='%' return-type='real'>
+      <formula>MOD(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='%' return-type='real'>
+      <formula>MOD(%1, %2)</formula>
+      <argument type='real' />
+      <argument type='real' />
     </function>
     <function group='string' name='LEN' return-type='int'>
       <formula>CHAR_LENGTH(%1)</formula>
