@@ -116,6 +116,7 @@
       <formula part='hour'>EXTRACT(HOUR FROM %2)</formula>
       <formula part='minute'>EXTRACT(MINUTE FROM %2)</formula>
       <formula part='second'>EXTRACT(SECOND FROM %2)</formula>
+      <formula part='week'>EXTRACT(WEEK FROM %2)</formula>
       <formula part='dayofyear'>EXTRACT(DAY_OF_YEAR FROM %2)</formula>
       <formula part='iso-week'>EXTRACT(ISO_WEEK FROM %2)</formula>
       <formula part='iso-weekday'>EXTRACT(ISO_WEEKDAY FROM %2)</formula>
