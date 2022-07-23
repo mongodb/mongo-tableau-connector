@@ -1,0 +1,262 @@
+{
+  "bsonType":[
+    "object"
+  ],
+  "properties":{
+    "PID":{
+      "bsonType":[
+        "int"
+      ]
+    },
+    "Ship Priority":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Total Cycle Time":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Employee Salary":{
+      "bsonType":[
+        "decimal"
+      ]
+    },
+    "Ship Mode":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Product ID":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Gross Profit":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Product Name":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Fill Time":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Market Segment":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Ship Handle Cost":{
+      "bsonType":[
+        "decimal"
+      ]
+    },
+    "Supplier Name":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Order Quantity":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Order Priority":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Supplier Balance":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Ship Date":{
+      "bsonType":[
+        "date"
+      ]
+    },
+    "Supplier State":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Prod Type4":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Customer State":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Employee Yrs Exp":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Employee Dept":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Manager Name":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Product In Stock":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Supplier Region":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Receive Time":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Order Date":{
+      "bsonType":[
+        "date"
+      ]
+    },
+    "Prod Type1":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Product Base Margin":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Order Quarter":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Customer Balance":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Ship Promo":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "":{
+      "bsonType":[
+        "int"
+      ]
+    },
+    "Item Count":{
+      "bsonType":[
+        "int"
+      ]
+    },
+    "Customer Name":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Sales Total":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Prod Type2":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Discount":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Received Date":{
+      "bsonType":[
+        "date"
+      ]
+    },
+    "Order Year":{
+      "bsonType":[
+        "int"
+      ]
+    },
+    "Customer Segment":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Ship Charge":{
+      "bsonType":[
+        "decimal"
+      ]
+    },
+    "Tax Rate":{
+      "bsonType":[
+        "double"
+      ]
+    },
+    "Employee Name":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Prod Type3":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Order ID":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "_id":{
+      "bsonType":[
+        "objectId"
+      ]
+    },
+    "Order Status":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Price":{
+      "bsonType":[
+        "decimal"
+      ]
+    },
+    "Call Center Region":{
+      "bsonType":[
+        "string"
+      ]
+    },
+    "Order Month":{
+      "bsonType":[
+        "int"
+      ]
+    },
+    "Product Container":{
+      "bsonType":[
+        "string"
+      ]
+    }
+  }
+}
