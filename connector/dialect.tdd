@@ -527,7 +527,7 @@
       <formula>RADIANS(%1)</formula>
       <argument type='real' />
     </function>
-    <function group='numeric' name='ROUND' return-type='int'>
+    <function group='numeric' name='ROUND' return-type='real'>
       <formula>ROUND(%1, 0)</formula>
       <argument type='int' />
     </function>
@@ -535,7 +535,7 @@
       <formula>ROUND(%1, 0)</formula>
       <argument type='real' />
     </function>
-    <function group='numeric' name='ROUND' return-type='int'>
+    <function group='numeric' name='ROUND' return-type='real'>
       <formula>ROUND(%1, %2)</formula>
       <argument type='int' />
       <argument type='int' />
