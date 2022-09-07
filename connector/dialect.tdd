@@ -1101,7 +1101,7 @@
       <argument type='localstr'/>
       <argument type='datetime'/>
       <argument type='datetime'/>
-      <argument type='localstr'/>
+      <argument type='str'/>
     </date-function>
     <date-function name='DATEPART' return-type='int'>
       <formula>EXTRACT(%1 FROM %2)</formula>
@@ -1143,7 +1143,7 @@
       <formula part='week'>DATETRUNC(WEEK, %2, %3)</formula>
       <argument type='localstr'/>
       <argument type='datetime'/>
-      <argument type='localstr'/>
+      <argument type='str'/>
     </date-function>
     <native-split-function>
       <formula part='left'>CASE WHEN %3 = 0 THEN NULL ELSE SPLIT(%1,%2, (%3 - 1)) END</formula>
