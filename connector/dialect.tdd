@@ -228,7 +228,7 @@
       <argument type='int' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS STRING)</formula>
+      <formula>CAST(CAST(%1 AS INT) AS STRING)</formula>
       <argument type='bool' />
     </function>
     <function group='date' name='DAY' return-type='int'>
