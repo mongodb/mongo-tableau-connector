@@ -905,6 +905,11 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
+    <function group='operator' name='&amp;&amp;' return-type='bool'>
+      <formula>(%1 AND %2)</formula>
+      <argument type='bool' />
+      <argument type='bool' />
+    </function>
     <function group='operator' name='||' return-type='bool'>
       <formula>(%1 OR %2)</formula>
       <argument type='bool' />
