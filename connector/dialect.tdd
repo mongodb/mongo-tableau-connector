@@ -1002,12 +1002,12 @@
      <argument type='real' />
     </function>
     <function group='string' name='LEFT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) ELSE SUBSTRING(%1,0,%2) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN NULL ELSE SUBSTRING(%1,0,%2) END)</formula>
      <argument type='str' />
      <argument type='int' />
     </function>
     <function group='string' name='LEFT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) ELSE SUBSTRING(%1,0,(%2)::INT) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN NULL ELSE SUBSTRING(%1,0,(%2)::INT) END)</formula>
      <argument type='str' />
      <argument type='real' />
     </function>
