@@ -1232,6 +1232,7 @@
     <aggregation value='AGG_SECOND'/>
   </supported-aggregations>
   <sql-format>
+    <format-date-literal formula="CAST('%1' AS TIMESTAMP)" format='yyyy-MM-dd' />
     <format-datetime-literal formula="CAST('%1' AS TIMESTAMP)" format='yyyy-MM-dd HH:mm:ss.SSS' />
     <format-false literal='FALSE' predicate='FALSE' />
     <format-is-distinct value='Formula' />
