@@ -549,7 +549,7 @@
     <function group='numeric' name='PI' return-type='real'>
       <formula>3.141592653589793</formula>
     </function>
-    <function group='numeric' name='POWER' return-type='int'>
+    <function group='numeric' name='POWER' return-type='real'>
       <formula>POW(%1,%2)</formula>
       <argument type='int' />
       <argument type='int' />
@@ -965,17 +965,17 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
-    <function group='operator' name='^^' return-type='int'>
+    <function group='operator' name='^^' return-type='real'>
       <formula>POW(%1, %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
-    <function group='operator' name='^^' return-type='int'>
+    <function group='operator' name='^^' return-type='real'>
       <formula>POW(%1, %2)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
-    <function group='operator' name='^^' return-type='int'>
+    <function group='operator' name='^^' return-type='real'>
       <formula>POW(%1, %2)</formula>
       <argument type='real' />
       <argument type='int' />
