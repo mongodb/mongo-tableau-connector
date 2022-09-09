@@ -638,6 +638,11 @@
       <argument type='int' />
       <argument type='real' />
     </function>
+    <function group='operator' name='+' return-type='str'>
+      <formula>(%1 || %2)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
     <function group='operator' name='+' return-type='real'>
       <formula>(%1 + %2)</formula>
       <argument type='real' />
