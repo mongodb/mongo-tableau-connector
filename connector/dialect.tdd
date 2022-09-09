@@ -425,11 +425,11 @@
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='FLOOR' return-type='real'>
