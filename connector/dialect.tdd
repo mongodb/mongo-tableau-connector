@@ -435,11 +435,11 @@
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='FLOOR' return-type='real'>
@@ -549,23 +549,23 @@
     <function group='numeric' name='PI' return-type='real'>
       <formula>3.141592653589793</formula>
     </function>
-    <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1,%2)</formula>
+    <function group='numeric' name='POWER' return-type='int'>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1,%2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1,%2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
@@ -622,11 +622,11 @@
       <argument type='real' />
     </function>
     <function group='numeric' name='SQUARE' return-type='real'>
-      <formula>POW(%1, 2) </formula>
+      <formula>(CASE WHEN POW(%1, 2)::STRING = 'NaN' THEN NULL ELSE POW(%1, 2) END)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='SQUARE' return-type='int'>
-      <formula>POW(%1, 2) </formula>
+      <formula>(CASE WHEN POW(%1, 2)::STRING = 'NaN' THEN NULL ELSE POW(%1, 2) END)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='SQRT' return-type='real'>
@@ -970,23 +970,23 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
-    <function group='operator' name='^^' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
-    <function group='operator' name='^^' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
-    <function group='operator' name='^^' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+    <function group='operator' name='^^' return-type='int'>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='^^' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
