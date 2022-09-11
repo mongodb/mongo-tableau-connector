@@ -228,7 +228,7 @@
       <argument type='int' />
     </function>
     <function group='cast' name='STR' return-type='str'>
-      <formula>CAST(%1 AS STRING)</formula>
+      <formula>CAST(CAST(%1 AS INT) AS STRING)</formula>
       <argument type='bool' />
     </function>
     <function group='date' name='DAY' return-type='int'>
@@ -302,31 +302,31 @@
       <argument type='datetime' />
     </function>
     <function group='logical' name='IIF' return-type='bool'>
-      <formula>(CASE WHEN %1 THEN %2 ELSE %3 END)</formula>
+      <formula> (CASE WHEN %1 THEN %2 WHEN NOT %1 THEN %3 ELSE NULL END)</formula>
       <argument type='bool' />
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='logical' name='IIF' return-type='int'>
-      <formula>(CASE WHEN %1 THEN %2 ELSE %3 END)</formula>
+      <formula> (CASE WHEN %1 THEN %2 WHEN NOT %1 THEN %3 ELSE NULL END)</formula>
       <argument type='bool' />
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='logical' name='IIF' return-type='real'>
-      <formula>(CASE WHEN %1 THEN %2 ELSE %3 END)</formula>
+      <formula> (CASE WHEN %1 THEN %2 WHEN NOT %1 THEN %3 ELSE NULL END)</formula>
       <argument type='bool' />
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='logical' name='IIF' return-type='str'>
-      <formula>(CASE WHEN %1 THEN %2 ELSE %3 END)</formula>
+      <formula> (CASE WHEN %1 THEN %2 WHEN NOT %1 THEN %3 ELSE NULL END)</formula>
       <argument type='bool' />
       <argument type='str' />
       <argument type='str' />
     </function>
     <function group='logical' name='IIF' return-type='datetime'>
-      <formula>(CASE WHEN %1 THEN %2 ELSE %3 END)</formula>
+      <formula> (CASE WHEN %1 THEN %2 WHEN NOT %1 THEN %3 ELSE NULL END)</formula>
       <argument type='bool' />
       <argument type='datetime' />
       <argument type='datetime' />
@@ -414,8 +414,8 @@
       <formula>DEGREES(%1)</formula>
       <argument type='int' />
     </function>
-    <function group='numeric' name='DIV' return-type='int'>
-      <formula>(%1 / %2)</formula>
+    <function group='numeric' name='DIV' return-type='real'>
+      <formula>(%1::DOUBLE / %2::DOUBLE)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
@@ -435,11 +435,11 @@
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='EXP' return-type='real'>
-      <formula>POW(2.718281828459046, %1)</formula>
+      <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='FLOOR' return-type='real'>
@@ -550,22 +550,22 @@
       <formula>3.141592653589793</formula>
     </function>
     <function group='numeric' name='POWER' return-type='int'>
-      <formula>POW(%1,%2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1,%2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1,%2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='numeric' name='POWER' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
@@ -577,7 +577,7 @@
       <formula>RADIANS(%1)</formula>
       <argument type='real' />
     </function>
-    <function group='numeric' name='ROUND' return-type='int'>
+    <function group='numeric' name='ROUND' return-type='real'>
       <formula>ROUND(%1, 0)</formula>
       <argument type='int' />
     </function>
@@ -585,7 +585,7 @@
       <formula>ROUND(%1, 0)</formula>
       <argument type='real' />
     </function>
-    <function group='numeric' name='ROUND' return-type='int'>
+    <function group='numeric' name='ROUND' return-type='real'>
       <formula>ROUND(%1, %2)</formula>
       <argument type='int' />
       <argument type='int' />
@@ -622,11 +622,11 @@
       <argument type='real' />
     </function>
     <function group='numeric' name='SQUARE' return-type='real'>
-      <formula>POW(%1, 2) </formula>
+      <formula>(CASE WHEN POW(%1, 2)::STRING = 'NaN' THEN NULL ELSE POW(%1, 2) END)</formula>
       <argument type='real' />
     </function>
     <function group='numeric' name='SQUARE' return-type='int'>
-      <formula>POW(%1, 2) </formula>
+      <formula>(CASE WHEN POW(%1, 2)::STRING = 'NaN' THEN NULL ELSE POW(%1, 2) END)</formula>
       <argument type='int' />
     </function>
     <function group='numeric' name='SQRT' return-type='real'>
@@ -687,6 +687,11 @@
       <formula>(%1 + %2)</formula>
       <argument type='int' />
       <argument type='real' />
+    </function>
+    <function group='operator' name='+' return-type='str'>
+      <formula>(%1 || %2)</formula>
+      <argument type='str' />
+      <argument type='str' />
     </function>
     <function group='operator' name='+' return-type='real'>
       <formula>(%1 + %2)</formula>
@@ -955,28 +960,33 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
+    <function group='operator' name='&amp;&amp;' return-type='bool'>
+      <formula>(%1 AND %2)</formula>
+      <argument type='bool' />
+      <argument type='bool' />
+    </function>
     <function group='operator' name='||' return-type='bool'>
       <formula>(%1 OR %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='operator' name='^^' return-type='int'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='operator' name='^^' return-type='int'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='real' />
     </function>
     <function group='operator' name='^^' return-type='int'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='int' />
     </function>
     <function group='operator' name='^^' return-type='real'>
-      <formula>POW(%1, %2)</formula>
+      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
@@ -1062,12 +1072,12 @@
      <argument type='real' />
     </function>
     <function group='string' name='LEFT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) ELSE SUBSTRING(%1,0,%2) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN NULL ELSE SUBSTRING(%1,0,%2) END)</formula>
      <argument type='str' />
      <argument type='int' />
     </function>
     <function group='string' name='LEFT' return-type='str'>
-     <formula>(CASE WHEN %2 &lt;= 0 THEN (CASE WHEN %1 IS NULL THEN NULL ELSE '' END) ELSE SUBSTRING(%1,0,(%2)::INT) END)</formula>
+     <formula>(CASE WHEN %2 &lt;= 0 THEN NULL ELSE SUBSTRING(%1,0,(%2)::INT) END)</formula>
      <argument type='str' />
      <argument type='real' />
     </function>
@@ -1161,7 +1171,7 @@
       <argument type='localstr'/>
       <argument type='datetime'/>
       <argument type='datetime'/>
-      <argument type='localstr'/>
+      <argument type='str'/>
     </date-function>
     <date-function name='DATEPART' return-type='int'>
       <formula>EXTRACT(%1 FROM %2)</formula>
@@ -1203,7 +1213,7 @@
       <formula part='week'>DATETRUNC(WEEK, %2, %3)</formula>
       <argument type='localstr'/>
       <argument type='datetime'/>
-      <argument type='localstr'/>
+      <argument type='str'/>
     </date-function>
     <native-split-function>
       <formula part='left'>CASE WHEN %3 = 0 THEN NULL ELSE SPLIT(%1,%2, (%3 - 1)) END</formula>
@@ -1227,6 +1237,7 @@
     <aggregation value='AGG_SECOND'/>
   </supported-aggregations>
   <sql-format>
+    <format-date-literal formula="CAST('%1' AS TIMESTAMP)" format='yyyy-MM-dd' />
     <format-datetime-literal formula="CAST('%1' AS TIMESTAMP)" format='yyyy-MM-dd HH:mm:ss.SSS' />
     <format-false literal='FALSE' predicate='FALSE' />
     <format-is-distinct value='Formula' />
