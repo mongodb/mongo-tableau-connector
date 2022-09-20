@@ -55,7 +55,7 @@ priority.
 Wait for the evergreen version to finish, and ensure that the release task completes successfully.
 
 #### Verify release artifacts
-Check that the released TACO file is available at the URL:
+Check that the released TACO file is available at the URL:  
 `https://translators-connectors-releases.s3.us-east-1.amazonaws.com/mongo-tableau-connector/mongodb-jdbc-<plugin-version>.taco`  
 
 ##### Ensure plugin-version is correct
