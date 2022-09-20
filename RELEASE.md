@@ -33,10 +33,6 @@ Ensure that the build you are releasing is passing the tests on the evergreen wa
 #### Ensure master up to date
 Ensure you have the `master` branch checked out, and that you have pulled the latest commit from `mongodb/mongo-tableau-connector`.
 
-#### Ensure plugin-version is correct
-Ensure that the `plugin-version` in [manifest.xml](https://github.com/mongodb/mongo-tableau-connector/blob/master/connector/manifest.xml) 
-is updated with the correct version.
-
 #### Create the tag and push
 Create an annotated tag and push it:
 ```
@@ -59,9 +55,15 @@ priority.
 Wait for the evergreen version to finish, and ensure that the release task completes successfully.
 
 #### Verify release artifacts
-Check that the released TACO file is available at the URL:
-- https://translators-connectors-releases.s3.us-east-1.amazonaws.com/mongo-tableau-connector/mongodb-jdbc-<plugin-version>.taco  
+Check that the released TACO file is available at the URL:  
+`https://translators-connectors-releases.s3.us-east-1.amazonaws.com/mongo-tableau-connector/mongodb-jdbc-<plugin-version>.taco`  
 
+##### Ensure plugin-version is correct
+Ensure that the `plugin-version` in [manifest.xml](https://github.com/mongodb/mongo-tableau-connector/blob/master/connector/manifest.xml)
+is updated with the correct version.
+- Rename the file from `taco` to `zip` and unzip. Check the manifest file.
+
+##### Verify TACO works with Tableau
 Download and install the TACO file.  
 Verify that it is able to connect to Atlas Data Lake with Tableau, extract data, 
 and add columns to the worksheet.
