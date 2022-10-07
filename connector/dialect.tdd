@@ -1055,7 +1055,7 @@
      <argument type='str' />
     </function>
     <function group='string' name='ENDSWITH' return-type='bool'>
-      <formula>(CASE WHEN (CHAR_LENGTH(%1) - CHAR_LENGTH(%2)) < 0 THEN false ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - CHAR_LENGTH(%2)) FOR (CHAR_LENGTH(%2))) = %2 END)</formula>
+      <formula>(CASE WHEN (CHAR_LENGTH(%1) - CHAR_LENGTH(%2)) &lt; 0 THEN false ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - CHAR_LENGTH(%2)) FOR (CHAR_LENGTH(%2))) = %2 END)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
