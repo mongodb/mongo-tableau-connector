@@ -180,8 +180,8 @@
       <argument type='str' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
-      <formula>CAST(%1 AS DOUBLE)</formula>
-      <argument type='datetime' />
+      <formula>((CAST(%1 AS DOUBLE) / ( 60 * 60 * 24 * 1000)) + (365 * 70 + 17))</formula>
+      <argument type='datetime'/>
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
       <formula>(%1)</formula>
