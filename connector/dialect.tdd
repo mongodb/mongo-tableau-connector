@@ -1135,6 +1135,8 @@
       <formula part='year'>DATEADD(YEAR, %2, %3)</formula>
       <formula part='month'>DATEADD(MONTH, %2, %3)</formula>
       <formula part='day'>DATEADD(DAY, %2, %3)</formula>
+      <formula part='dayofyear'>DATEADD(DAY, %2, %3)</formula>
+      <formula part='weekday'>DATEADD(DAY, %2, %3)</formula>
       <formula part='hour'>DATEADD(HOUR, %2, %3)</formula>
       <formula part='minute'>DATEADD(MINUTE, %2, %3)</formula>
       <formula part='second'>DATEADD(SECOND, %2, %3)</formula>
