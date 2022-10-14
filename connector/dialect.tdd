@@ -200,6 +200,10 @@
       <argument type='str' />
     </function>
     <function group='cast' name='INT' return-type='int'>
+      <formula>(((CAST(%1 AS DOUBLE) / ( 60 * 60 * 24 * 1000)) + (365 * 70 + 17))::INT)</formula>
+      <argument type='datetime'/>
+    </function>
+    <function group='cast' name='INT' return-type='int'>
       <formula>CAST(%1 AS INT)</formula>
       <argument type='real' />
     </function>
