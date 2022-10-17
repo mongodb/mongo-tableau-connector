@@ -1062,6 +1062,11 @@
      <argument type='str' />
      <argument type='str' />
     </function>
+    <function group='string' name='ENDSWITH' return-type='bool'>
+      <formula>(CASE WHEN CHAR_LENGTH(%1) &lt; CHAR_LENGTH(%2) THEN false ELSE SUBSTRING(%1 FROM (CHAR_LENGTH(%1) - CHAR_LENGTH(%2)) FOR (CHAR_LENGTH(%2))) = %2 END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
     <function group='string' name='FIND' return-type='int'>
      <formula>(POSITION(%2 IN %1) + 1)</formula>
      <argument type='str' />
