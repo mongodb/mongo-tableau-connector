@@ -180,6 +180,8 @@
       <argument type='str' />
     </function>
     <function group='cast' name='FLOAT' return-type='real'>
+      <!-- https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm -->
+      <!-- Tableau expects that a date is treated as the number of days since 1/1/1900 when casting to a numeric type. -->
       <formula>((CAST(%1 AS DOUBLE) / ( 60 * 60 * 24 * 1000)) + (365 * 70 + 17))</formula>
       <argument type='datetime'/>
     </function>
