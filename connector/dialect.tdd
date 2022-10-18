@@ -1164,6 +1164,8 @@
     </date-function>
     <date-function name='DATEPART' return-type='int'>
       <formula>EXTRACT(%1 FROM %2)</formula>
+      <!-- MongoDB week number starts at 0 and not 1 -->
+      <formula part='week'>(1 + EXTRACT(%1 FROM %2))</formula>
       <argument type='localstr'/>
       <argument type='datetime'/>
     </date-function>
