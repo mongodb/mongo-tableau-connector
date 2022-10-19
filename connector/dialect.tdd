@@ -739,7 +739,7 @@
       <argument type='real' />
       <argument type='real' />
     </function>
-    <function group='operator' name='/' return-type='int'>
+    <function group='operator' name='/' return-type='real'>
       <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='int' />
