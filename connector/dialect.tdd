@@ -701,6 +701,20 @@
       <argument type='str' />
       <argument type='str' />
     </function>
+    <function group='operator' name='+' return-type='datetime'>
+     <!-- Convert the number of days to milliseconds and add it to the timestamp value -->
+     <formula>(%1::DOUBLE + %2 * 86400000)::TIMESTAMP</formula>
+     <argument type='datetime' />
+     <!-- Fractional days to add -->
+     <argument type='real' />
+    </function>
+    <function group='operator' name='+' return-type='datetime'>
+     <!-- Convert the number of days to milliseconds and add it to the timestamp value -->
+     <formula>(%1::DOUBLE + %2 * 86400000)::TIMESTAMP</formula>
+     <argument type='datetime' />
+     <!-- Days to add -->
+     <argument type='int' />
+    </function>
     <function group='operator' name='+' return-type='real'>
       <formula>(%1 + %2)</formula>
       <argument type='real' />
@@ -733,6 +747,20 @@
       <formula>(%1 - %2)</formula>
       <argument type='real' />
       <argument type='int' />
+    </function>
+    <function group='operator' name='-' return-type='datetime'>
+     <!-- Convert the number of days to milliseconds and substract it to the timestamp value -->
+     <formula>(%1::DOUBLE - %2 * 86400000)::TIMESTAMP</formula>
+     <argument type='datetime' />
+     <!-- Fractional days to substract -->
+     <argument type='real' />
+    </function>
+    <function group='operator' name='-' return-type='datetime'>
+     <!-- Convert the number of days to milliseconds and substract it to the timestamp value -->
+     <formula>(%1::DOUBLE - %2 * 86400000)::TIMESTAMP</formula>
+     <argument type='datetime' />
+     <!-- Days to substract -->
+     <argument type='int' />
     </function>
     <function group='operator' name='/' return-type='real'>
       <formula>(%1 / %2)</formula>
