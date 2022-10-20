@@ -198,7 +198,9 @@
       <argument type='bool' />
     </function>
     <function group='cast' name='INT' return-type='int'>
-      <formula>CAST(%1 AS INT)</formula>
+      <!-- Cast string to a number first and then cast the number to an int
+      because a direct cast returns Null for numbers which are not Ints -->
+      <formula>(%1::NUMERIC)::INT</formula>
       <argument type='str' />
     </function>
     <function group='cast' name='INT' return-type='int'>
