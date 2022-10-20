@@ -442,11 +442,6 @@
       <argument type='real' />
       <argument type='int' />
     </function>
-    <function group='numeric' name='POWER' return-type='real'>
-      <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
-      <argument type='int' />
-      <argument type='int' />
-    </function>
     <function group='numeric' name='EXP' return-type='real'>
       <formula>(CASE WHEN POW(2.718281828459046, %1)::STRING = 'NaN' THEN NULL ELSE POW(2.718281828459046, %1) END)</formula>
       <argument type='int' />
@@ -562,7 +557,7 @@
     <function group='numeric' name='PI' return-type='real'>
       <formula>3.141592653589793</formula>
     </function>
-    <function group='numeric' name='POWER' return-type='int'>
+    <function group='numeric' name='POWER' return-type='real'>
       <formula>(CASE WHEN POW(%1, %2)::STRING = 'NaN' THEN NULL ELSE POW(%1, %2) END)</formula>
       <argument type='int' />
       <argument type='int' />
