@@ -422,8 +422,8 @@
       <formula>DEGREES(%1)</formula>
       <argument type='int' />
     </function>
-    <function group='numeric' name='DIV' return-type='real'>
-      <formula>(%1::DOUBLE / %2::DOUBLE)</formula>
+    <function group='numeric' name='DIV' return-type='int'>
+      <formula>(%1 / %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
