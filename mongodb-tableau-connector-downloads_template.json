@@ -1,0 +1,4 @@
+{
+  "version": "{RELEASE_VERSION}",
+  "download_link": "https://translators-connectors-releases.s3.us-east-1.amazonaws.com/mongo-tableau-connector/mongodb-jdbc-{RELEASE_VERSION}.taco"
+}
