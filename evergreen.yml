@@ -266,10 +266,6 @@ tasks:
     commands:
       - func: "update download center feed"
 
-  - name: test-downloadcenter-update
-    commands:
-      - func: "update download center feed"
-
 buildvariants:
   - name: ubuntu2004
     display_name: "Ubuntu 20.04"
@@ -279,4 +275,3 @@ buildvariants:
       - name: sign
       - name: release
       - name: downloadcenter-update
-      - name: test-downloadcenter-update
