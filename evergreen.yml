@@ -227,7 +227,7 @@ functions:
         remote_file: mongo-tableau-connector/mongo-tableau-connector-downloads.json
         bucket: translators-connectors-releases
         permissions: public-read
-        content_type: application/octet-stream
+        content_type: application/json
 pre:
   - func: "fetch source"
   - func: "setup python virtual environment"
@@ -259,7 +259,7 @@ tasks:
       - func: "fetch signed connector"
       - func: "upload release"
 
-  - name: downloadcenter-update
+  - name: download-center-update
     git_tag_only: true
     depends_on:
       - name: release
@@ -274,4 +274,4 @@ buildvariants:
       - name: compile
       - name: sign
       - name: release
-      - name: downloadcenter-update
+      - name: download-center-update
