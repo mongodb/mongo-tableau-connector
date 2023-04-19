@@ -73,6 +73,7 @@ functions:
           cat <<EOT > expansions.yml
           MONGO_TABLEAU_CONNECTOR_VERSION: "$MONGO_TABLEAU_CONNECTOR_VERSION"
           UPDATE_PLUGIN_VERSION: "$UPDATE_PLUGIN_VERSION"
+          RELEASE_TACO_PATH: "mongo-tableau-connector/mongodb-jdbc-$MONGO_TABLEAU_CONNECTOR_VERSION.taco"
           prepare_shell: |
             set -o errexit
             export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
@@ -177,7 +178,7 @@ functions:
         aws_key: ${release_aws_key}
         aws_secret: ${release_aws_secret}
         local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
-        remote_file: mongo-tableau-connector/mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
+        remote_file: ${RELEASE_TACO_PATH}
         bucket: translators-connectors-releases
         permissions: public-read
         display_name: mongodb-jdbc-${MONGO_TABLEAU_CONNECTOR_VERSION}.taco
@@ -216,6 +217,7 @@ functions:
         script: |
           ${prepare_shell}
           sed -i 's@{RELEASE_VERSION}@'${MONGO_TABLEAU_CONNECTOR_VERSION}'@' mongo-tableau-connector-downloads_template.json
+          sed -i 's@{RELEASE_TACO_PATH}@'${RELEASE_TACO_PATH}'@' mongo-tableau-connector-downloads_template.json
           echo "-------------------------"
           cat mongo-tableau-connector-downloads_template.json
           echo "-------------------------"
