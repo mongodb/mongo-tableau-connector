@@ -78,6 +78,7 @@ functions:
             set -o errexit
             export MONGO_TABLEAU_CONNECTOR_VERSION="$MONGO_TABLEAU_CONNECTOR_VERSION"
             export UPDATE_PLUGIN_VERSION="$UPDATE_PLUGIN_VERSION"
+            export RELEASE_TACO_PATH="$RELEASE_TACO_PATH"
           EOT
     - command: expansions.update
       params:
