@@ -116,7 +116,7 @@ functions:
         script: |
           ${prepare_shell}
 
-          echo '${signing_auth_token}' > ./signing_auth_token
+          docker login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${artifactory_link}
     - command: shell.exec
       type: system
       params:
@@ -125,12 +125,13 @@ functions:
         script: |
           ${prepare_shell}
 
-          /usr/local/bin/notary-client.py \
-            --key-name "tableu-connector" \
-            --auth-token-file ./signing_auth_token \
-            --comment 'Evergreen Automated Signing (mongo-tableau-connector)' \
-            --notary-url http://notary-service.build.10gen.cc:5000 \
-            mongodb_jdbc.taco
+          docker run \
+            -e GRS_CONFIG_USER1_USERNAME=${garasign_username} \
+            -e GRS_CONFIG_USER1_PASSWORD=${garasign_password} \
+            --rm \
+            -v $(pwd):$(pwd) -w $(pwd) \
+            ${garasign_gpg_image} \
+            /bin/bash -c "gpgloader && gpg --yes -v --armor -o mongodb_jdbc.taco.sig --detach-sign mongodb_jdbc.taco"
 
   "update plugin-version":
     - command: shell.exec
