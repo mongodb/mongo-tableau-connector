@@ -111,6 +111,7 @@ functions:
     - command: shell.exec
       type: system
       params:
+        working_dir: mongo-tableau-connector
         silent: true
         script: |
           ${prepare_shell}
