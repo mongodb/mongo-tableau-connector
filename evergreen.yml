@@ -115,7 +115,7 @@ functions:
         script: |
           ${prepare_shell}
 
-          docker login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${artifactory_link}
+          podman login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${artifactory_link}
     - command: shell.exec
       type: system
       params:
@@ -124,13 +124,14 @@ functions:
         script: |
           ${prepare_shell}
 
-          docker run \
+          podman run \
             -e GRS_CONFIG_USER1_USERNAME=${garasign_username} \
             -e GRS_CONFIG_USER1_PASSWORD=${garasign_password} \
             --rm \
-            -v $(pwd):$(pwd) -w $(pwd) \
-            ${garasign_gpg_image} \
-            /bin/bash -c "gpgloader && gpg --yes -v --armor -o mongodb_jdbc.taco.sig --detach-sign mongodb_jdbc.taco"
+            -v $(pwd):$(pwd)
+            -w $(pwd) \
+            ${garasign_jarsigner_image} \
+            /bin/bash -c "jarsigner mongodb_jdbc.taco mongo-authenticode-2021 -tsa http://timestamp.digicert.com"
 
   "update plugin-version":
     - command: shell.exec
