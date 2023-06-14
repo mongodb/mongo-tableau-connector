@@ -115,7 +115,7 @@ functions:
         script: |
           ${prepare_shell}
 
-          docker login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${artifactory_link}
+          docker login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${release_tools_container_registry}
     - command: shell.exec
       type: system
       params:
