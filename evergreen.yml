@@ -107,18 +107,15 @@ functions:
 
           python3 -m venv .venv
 
-  "sign archive1":
+  "sign archive":
     - command: shell.exec
       type: system
       params:
-        working_dir: mongo-tableau-connector
         silent: true
         script: |
           ${prepare_shell}
 
           docker login --username ${sql_engines_artifactory_username} --password ${sql_engines_artifactory_auth_token} ${release_tools_container_registry}
-
-  "sign archive2":
     - command: shell.exec
       type: system
       params:
@@ -134,23 +131,6 @@ functions:
             -v $(pwd):$(pwd) -w $(pwd) \
             ${garasign_jarsigner_image} \
             /bin/bash -c "jarsigner mongodb_jdbc.taco mongo-authenticode-2021 -tsa http://timestamp.digicert.com"
-
-  "sign archive3":
-    - command: shell.exec
-      type: system
-      params:
-        working_dir: mongo-tableau-connector
-        silent: false
-        script: |
-          ${prepare_shell}
-
-          docker run \
-            -e GRS_CONFIG_USER1_USERNAME=${tableau_garasign_username} \
-            -e GRS_CONFIG_USER1_PASSWORD=${tableau_garasign_password} \
-            --rm \
-            -v $(pwd):$(pwd) -w $(pwd) \
-            ${garasign_gpg_image} \
-            /bin/bash -c "gpgloader && gpg --yes -v --armor -o mongodb_jdbc.taco.sig --detach-sign mongodb_jdbc.taco"
 
   "update plugin-version":
     - command: shell.exec
@@ -271,8 +251,7 @@ tasks:
       - name: compile
     commands:
       - func: "fetch packaged connector"
-      - func: "sign archive1"
-      - func: "sign archive3"
+      - func: "sign archive"
       - func: "upload signed connector"
 
   - name: release
