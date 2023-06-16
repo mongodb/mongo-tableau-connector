@@ -194,16 +194,8 @@ functions:
         remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc-signed.taco
         bucket: mciuploads
         permissions: public-read
+        display_name: mongodb-jdbc-signed.taco
         content_type: application/octet-stream
-
-  "get signed connector":
-    - command: s3.get
-      params:
-        aws_key: ${aws_key}
-        aws_secret: ${aws_secret}
-        remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc-signed.taco
-        bucket: mciuploads
-        local_file: mongo-tableau-connector/mongodb_jdbc-signed.taco
 
   "verify signed connector":
     - command: shell.exec
@@ -214,7 +206,7 @@ functions:
         script: |
           ${prepare_shell}
           
-          jarsigner -verify mongodb_jdbc-signed.taco -verbose -certs -strict
+          jarsigner -verify mongodb_jdbc.taco -verbose -certs -strict
 
   "validate connector XML format":
     - command: shell.exec
@@ -272,9 +264,8 @@ tasks:
     commands:
       - func: "fetch packaged connector"
       - func: "sign archive"
-      - func: "upload signed connector"
-      - func: "get signed connector"
       - func: "verify signed connector"
+      - func: "upload signed connector"
 
   - name: release
     git_tag_only: true
