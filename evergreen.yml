@@ -120,7 +120,7 @@ functions:
       type: system
       params:
         working_dir: mongo-tableau-connector
-        silent: false
+        silent: true
         script: |
           ${prepare_shell}
 
