@@ -37,6 +37,8 @@ functions:
           --verbose ../../connector/ --dest ../../package --log ../../logs 2>&1 | tee /dev/stdout \
           | grep "Taco packaged" >/dev/null)
 
+          mv package/mongodb_jdbc-*.taco package/mongodb_jdbc.taco
+
   "fetch source":
     - command: git.get_project
       params:
@@ -154,7 +156,7 @@ functions:
       params:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        local_file: mongo-tableau-connector/package/mongodb_jdbc-v0.0.0.taco
+        local_file: mongo-tableau-connector/package/mongodb_jdbc.taco
         remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc.taco
         bucket: mciuploads
         permissions: public-read
