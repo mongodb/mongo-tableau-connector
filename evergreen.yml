@@ -37,6 +37,8 @@ functions:
           --verbose ../../connector/ --dest ../../package --log ../../logs 2>&1 | tee /dev/stdout \
           | grep "Taco packaged" >/dev/null)
 
+          mv package/mongodb_jdbc-*.taco package/mongodb_jdbc.taco
+
   "fetch source":
     - command: git.get_project
       params:
@@ -120,7 +122,7 @@ functions:
       type: system
       params:
         working_dir: mongo-tableau-connector
-        silent: false
+        silent: true
         script: |
           ${prepare_shell}
 
@@ -205,7 +207,7 @@ functions:
         silent: false
         script: |
           ${prepare_shell}
-          
+
           jarsigner -verify mongodb_jdbc.taco -verbose -certs -strict
 
   "validate connector XML format":
