@@ -154,7 +154,7 @@ functions:
       params:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        local_file: mongo-tableau-connector/package/mongodb_jdbc.taco
+        local_file: mongo-tableau-connector/package/mongodb_jdbc-v0.0.0.taco
         remote_file: mongo-tableau-connector/artifacts/${version_id}/mongodb_jdbc.taco
         bucket: mciuploads
         permissions: public-read
@@ -205,7 +205,7 @@ functions:
         silent: false
         script: |
           ${prepare_shell}
-          
+
           jarsigner -verify mongodb_jdbc.taco -verbose -certs -strict
 
   "validate connector XML format":
