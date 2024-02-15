@@ -123,12 +123,15 @@ functions:
       params:
         working_dir: mongo-tableau-connector
         silent: true
+        env:
+           GRS_CONFIG_USER1_USERNAME: "${tableau_garasign_username}"
+           GRS_CONFIG_USER1_PASSWORD: "${tableau_garasign_password}"
         script: |
           ${prepare_shell}
 
           docker run \
-            -e GRS_CONFIG_USER1_USERNAME=${tableau_garasign_username} \
-            -e GRS_CONFIG_USER1_PASSWORD=${tableau_garasign_password} \
+            -e GRS_CONFIG_USER1_USERNAME \
+            -e GRS_CONFIG_USER1_PASSWORD \
             --rm \
             -v $(pwd):$(pwd) -w $(pwd) \
             ${garasign_jarsigner_image} \
