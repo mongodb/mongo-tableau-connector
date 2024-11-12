@@ -7,6 +7,7 @@
         <connection-normalizer>
           <required-attributes>
             <attribute-list>
+              <attr>server</attr>
               <attr>v-mongodb-uri</attr>
               <attr>dbname</attr>
               <attr>authentication</attr>
