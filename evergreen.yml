@@ -135,7 +135,7 @@ functions:
             --rm \
             -v $(pwd):$(pwd) -w $(pwd) \
             ${garasign_jarsigner_image} \
-            /bin/bash -c "jarsigner mongodb_jdbc.taco mongo-authenticode-2021 -tsa http://timestamp.digicert.com"
+            /bin/bash -c "jarsigner mongodb_jdbc.taco ${authenticode_key_name} -tsa http://timestamp.digicert.com"
 
   "update plugin-version":
     - command: shell.exec
