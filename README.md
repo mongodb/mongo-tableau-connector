@@ -1,7 +1,7 @@
 # mongo-tableau-connector
 
-This repository contains a custom Tableau connector for MongoDB Atlas
-SQL, wrapping our JDBC driver (see
+This repository contains a custom Tableau connector for the MongoDB
+SQL Interface, wrapping our JDBC driver (see
 [mongodb/mongo-jdbc-driver](/mongodb/mongo-jdbc-driver)).
 
 The releases are available for download at the following location.  Replace `[plugin-version]` with plugin version:

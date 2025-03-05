@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoDB Atlas' version='18.1' min-version-tableau='2020.4'>
+<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoDB SQL Interface' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
       <company name="MongoDB"/>
       <support-link url="https://support.mongodb.com"/>
@@ -8,7 +8,7 @@
   </vendor-information>
   <connection-customization class="mongodb_jdbc" enabled="true" version="10.0">
     <vendor name="MongoDB"/>
-    <driver name="MongoDB Atlas"/>
+    <driver name="MongoDB SQL Interface"/>
     <customizations>
       <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
       <!-- Metadata -->
