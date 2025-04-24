@@ -1,53 +1,54 @@
-<?xml version='1.0' encoding='utf-8' ?>
+<?xml version='1.0' encoding='utf-8'?>
 
-<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.0.0' name='MongoDB SQL Interface' version='18.1' min-version-tableau='2020.4'>
-  <vendor-information>
-      <company name="MongoDB"/>
-      <support-link url="https://support.mongodb.com"/>
-      <driver-download-link url="https://search.maven.org/artifact/org.mongodb/mongodb-jdbc"/>
-  </vendor-information>
-  <connection-customization class="mongodb_jdbc" enabled="true" version="10.0">
-    <vendor name="MongoDB"/>
-    <driver name="MongoDB SQL Interface"/>
-    <customizations>
-      <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
-      <!-- Metadata -->
-      <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="no"/>
-      <!-- Temporary Tables -->
-      <customization name="CAP_CREATE_TEMP_TABLES" value="no"/>
-      <customization name="CAP_SELECT_INTO" value="no"/>
-      <customization name="CAP_SELECT_TOP_INTO" value="no"/>
-      <!-- String Splits -->
-      <customization name="CAP_SUPPORTS_SPLIT_FROM_LEFT" value="yes"/>
-      <customization name="CAP_SUPPORTS_SPLIT_FROM_RIGHT" value="yes"/>
-      <!-- Initial SQL-->
-      <customization name="CAP_SUPPORTS_INITIAL_SQL" value="yes"/>
-      <!-- Query -->
-      <customization name="CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL" value="yes"/>
-      <customization name="CAP_QUERY_BOOLEXPR_TO_INTEXPR" value="no"/>
-      <customization name="CAP_QUERY_CASE_MATCHES_NULL" value="yes"/>
-      <customization name="CAP_QUERY_CASE_OUT_NO_BOOL_OPS" value="no"/>
-      <customization name="CAP_QUERY_GROUP_BY_ALIAS" value="yes"/>
-      <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes"/>
-      <customization name="CAP_QUERY_HAVING_UNSUPPORTED" value="no"/>
-      <customization name="CAP_QUERY_INCLUDE_GROUP_BY_COLUMNS_IN_SELECT" value="no"/>
-      <customization name="CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS" value="no"/>
-      <customization name="CAP_QUERY_SCALAR_SELECTS_ALL_IN_GROUP_BYS" value="yes"/>
-      <customization name="CAP_QUERY_SORT_BY" value="yes"/>
-      <customization name="CAP_QUERY_SUBQUERIES" value="yes"/>
-      <customization name="CAP_QUERY_SUPPORT_EMPTY_GROUPBY" value="no"/>
-      <customization name="CAP_QUERY_TOP_0" value="no"/>
-      <customization name="CAP_QUERY_TOP_N" value="yes"/>
-      <!-- JDBC -->
-      <customization name="CAP_JDBC_METADATA_READ_FOREIGNKEYS" value="no"/>
-      <customization name="CAP_JDBC_METADATA_READ_PRIMARYKEYS" value="no"/>
-      <customization name="CAP_JDBC_QUERY_CANCEL" value="no"/>
-      <customization name="CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS" value="yes"/>
-      <customization name="CAP_JDBC_USE_ADAPTIVE_FETCH_SIZE" value="no"/>
-    </customizations>
-  </connection-customization>
-  <connection-fields file='connectionFields.xml'/>
-  <connection-metadata file='connectionMetadata.xml'/>
-  <connection-resolver file="connectionResolver.tdr"/>
-  <dialect file='dialect.tdd'/>
+<connector-plugin class='mongodb_jdbc' superclass='jdbc' plugin-version='0.0.0'
+    name='MongoDB SQL Interface' version='18.1' min-version-tableau='2020.4'>
+    <vendor-information>
+        <company name="MongoDB" />
+        <support-link url="https://support.mongodb.com" />
+        <driver-download-link url="https://search.maven.org/artifact/org.mongodb/mongodb-jdbc" />
+    </vendor-information>
+    <connection-customization class="mongodb_jdbc" enabled="true" version="10.0">
+        <vendor name="MongoDB" />
+        <driver name="MongoDB SQL Interface" />
+        <customizations>
+            <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
+            <!-- Metadata -->
+            <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="no" />
+            <!-- Temporary Tables -->
+            <customization name="CAP_CREATE_TEMP_TABLES" value="no" />
+            <customization name="CAP_SELECT_INTO" value="no" />
+            <customization name="CAP_SELECT_TOP_INTO" value="no" />
+            <!-- String Splits -->
+            <customization name="CAP_SUPPORTS_SPLIT_FROM_LEFT" value="yes" />
+            <customization name="CAP_SUPPORTS_SPLIT_FROM_RIGHT" value="yes" />
+            <!-- Initial SQL-->
+            <customization name="CAP_SUPPORTS_INITIAL_SQL" value="yes" />
+            <!-- Query -->
+            <customization name="CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL" value="yes" />
+            <customization name="CAP_QUERY_BOOLEXPR_TO_INTEXPR" value="no" />
+            <customization name="CAP_QUERY_CASE_MATCHES_NULL" value="yes" />
+            <customization name="CAP_QUERY_CASE_OUT_NO_BOOL_OPS" value="no" />
+            <customization name="CAP_QUERY_GROUP_BY_ALIAS" value="yes" />
+            <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes" />
+            <customization name="CAP_QUERY_HAVING_UNSUPPORTED" value="no" />
+            <customization name="CAP_QUERY_INCLUDE_GROUP_BY_COLUMNS_IN_SELECT" value="no" />
+            <customization name="CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS" value="no" />
+            <customization name="CAP_QUERY_SCALAR_SELECTS_ALL_IN_GROUP_BYS" value="yes" />
+            <customization name="CAP_QUERY_SORT_BY" value="yes" />
+            <customization name="CAP_QUERY_SUBQUERIES" value="yes" />
+            <customization name="CAP_QUERY_SUPPORT_EMPTY_GROUPBY" value="no" />
+            <customization name="CAP_QUERY_TOP_0" value="no" />
+            <customization name="CAP_QUERY_TOP_N" value="yes" />
+            <!-- JDBC -->
+            <customization name="CAP_JDBC_METADATA_READ_FOREIGNKEYS" value="no" />
+            <customization name="CAP_JDBC_METADATA_READ_PRIMARYKEYS" value="no" />
+            <customization name="CAP_JDBC_QUERY_CANCEL" value="no" />
+            <customization name="CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS" value="yes" />
+            <customization name="CAP_JDBC_USE_ADAPTIVE_FETCH_SIZE" value="no" />
+        </customizations>
+    </connection-customization>
+    <connection-fields file='connectionFields.xml' />
+    <connection-metadata file='connectionMetadata.xml' />
+    <connection-resolver file="connectionResolver.tdr" />
+    <dialect file='dialect.tdd' />
 </connector-plugin>
