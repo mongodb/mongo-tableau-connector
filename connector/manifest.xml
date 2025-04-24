@@ -12,7 +12,7 @@
     <customizations>
       <!-- https://tableau.github.io/connector-plugin-sdk/docs/capabilities -->
       <!-- Metadata -->
-      <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="yes"/>
+      <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="no"/>
       <!-- Temporary Tables -->
       <customization name="CAP_CREATE_TEMP_TABLES" value="no"/>
       <customization name="CAP_SELECT_INTO" value="no"/>
