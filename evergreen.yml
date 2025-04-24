@@ -97,7 +97,7 @@ functions:
           # Clone connector-plugin-sdk and install packaging module
           git clone https://github.com/tableau/connector-plugin-sdk.git
           source ./.venv/bin/activate
-          ( cd connector-plugin-sdk/connector-packager && python3 setup.py install )
+          ( cd connector-plugin-sdk/connector-packager && pip install -e . )
 
   "setup python virtual environment":
     - command: shell.exec
