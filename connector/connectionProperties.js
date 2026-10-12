@@ -6,6 +6,16 @@
         props["user"] = attr[connectionHelper.attributeUsername];
         props["password"] = attr[connectionHelper.attributePassword];
     }
+    else if (auth === "auth-user") {
+        // GSSAPI: Principal Name
+        props["user"] = attr[connectionHelper.attributeUsername];
+    }
+    else if (auth === "auth-none") {
+        // X509: no user, possible password if PEM is provided
+        if (attr[connectionHelper.attributePassword]) {
+            props["password"] = attr[connectionHelper.attributePassword];
+        }
+    }
 
     props["database"] = attr[connectionHelper.attributeDatabase];
     props["dialect"] = "mongosql";

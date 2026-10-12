@@ -3,21 +3,39 @@
 <connection-fields>
   <!-- Main tab fields -->
   <field name="server" label="MongoDB URI" value-type="string" category="endpoint" />
-  <field name="authentication" label="Authentication" category="authentication" value-type="selection" default-value="auth-user-pass">
+  <field name="authentication" label="Authentication Mechanism" category="authentication" value-type="selection" default-value="auth-user-pass">
     <selection-group>
       <option value="auth-user-pass" label="Username and Password"/>
-      <option value="auth-none" label="Certificate / Token" />
+      <option value="auth-none" label="X509" />
+      <option value="auth-user" label="GSSAPI" />
+      <option value="auth-integrated" label="OIDC" />
     </selection-group>
   </field>
+
   <field name="username" label="Username" value-type="string" category="authentication">
     <conditions>
       <condition field="authentication" value="auth-user-pass"/>
+      <!-- GSSAPI - Principal Name -->
+      <condition field="authentication" value="auth-user"/>
     </conditions>
   </field>
+
   <field name="password" label="Password" value-type="string" category="authentication" secure="true">
     <conditions>
       <condition field="authentication" value="auth-user-pass"/>
+      <!-- X509 - Optionally provide PEM contents in password field -->
+      <condition field="v-x509-input-toggle" value="true"/>
     </conditions>
+  </field>
+
+  <field name="v-x509-input-toggle" label="Provide PEM Contents" value-type="boolean" category="authentication">
+    <conditions>
+      <condition field="authentication" value="auth-none"/>
+    </conditions>
+    <boolean-options>
+      <false-value value="" />
+      <true-value value="true" />
+    </boolean-options>
   </field>
 
 </connection-fields>
