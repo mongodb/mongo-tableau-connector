@@ -76,12 +76,8 @@ changes:
 Notes:
 
 - `ConnectPluginsPath` points at the `connector/` folder, and the `mongodb_jdbc.taco`
-  you moved there in step 3 is what Tableau loads. After each dialect change, rebuild
+  you moved there in step 3. After each dialect change, rebuild
   and re-move the taco (step 3), then relaunch Tableau with this command.
-- The locally built taco isn't signed, so `DisableVerifyConnectorPluginSignature=true`
-  is always required.
-- Both flags only apply to Tableau instances launched this way; launching from the
-  Dock/Finder ignores them.
 - Tableau caches the connector's function list at startup, and existing datasources
   cache function availability. After relaunching, test against a **new datasource**.
 
