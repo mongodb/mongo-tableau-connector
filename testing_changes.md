@@ -60,6 +60,13 @@ To produce the  `.taco` that Tablea will use run:
 mv package/mongodb_jdbc-*.taco connector/mongodb_jdbc.taco
 ```
 
+Tableau also loads connectors from `~/Documents/My Tableau Repository/Connectors/`,
+so copy the freshly built taco there too:
+
+```bash
+cp connector/mongodb_jdbc.taco "$HOME/Documents/My Tableau Repository/Connectors/"
+```
+
 ## 4. Launch Tableau
 
 Tableau only reads the connector at startup, so relaunch it after every change. The
@@ -103,8 +110,9 @@ grep "Loading connector plugin" "$HOME/Documents/My Tableau Repository/Logs"/log
 - **Stale taco**: if the log shows a `.taco` path other than
   `mongo-tableau-connector/connector/mongodb_jdbc.taco` (e.g. one in
   `~/Library/Tableau/Connectors/` or `~/Documents/My Tableau Repository/Connectors/`),
-  that stale taco wins or competes with yours. Remove stale tacos and fully restart
-  Tableau.
+  that stale taco wins or competes with yours. Remove stale tacos, re-copy the
+  current `connector/mongodb_jdbc.taco` to
+  `~/Documents/My Tableau Repository/Connectors/`, and fully restart Tableau.
 - **"Function ... not available on non-aggregates"**: usually means the running
   Tableau process loaded an old connector version. Restart Tableau fully and recheck
   the `Loading connector plugin` line in the log.
