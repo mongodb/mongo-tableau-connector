@@ -1174,7 +1174,7 @@
      <argument type='str' />
     </function>
     <function group='string' name='REPLACE' return-type='str'>
-      <formula>REPLACE(CAST(%1 AS STRING), CAST(%2 AS STRING), CAST(%3 AS STRING))</formula>
+      <formula>REPLACE(%1,%2,%3)</formula>
       <argument type='str' />
       <argument type='str' />
       <argument type='str' />
