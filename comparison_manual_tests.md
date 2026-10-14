@@ -4,30 +4,30 @@ Test each combination in Tableau Desktop using a calculated filter against an ex
 
 | Type Pair          | Comparison | Sample Filter                                                      | Validated |
 | ------------------ | ---------- | ------------------------------------------------------------------ | --------- |
-| (str, int)         | `>`        | `'{"$numberInt": "5"}' > [intField]`                               |           |
-| (str, int)         | `>=`       | `'{"$numberInt": "5"}' >= [intField]`                              |           |
-| (str, int)         | `<`        | `'{"$numberInt": "5"}' < [intField]`                               |           |
-| (str, int)         | `<=`       | `'{"$numberInt": "5"}' <= [intField]`                              |           |
-| (str, int)         | `==`       | `'{"$numberInt": "5"}' == [intField]`                              |           |
-| (str, int)         | `!=`       | `'{"$numberInt": "5"}' != [intField]`                              |           |
-| (int, str)         | `>`        | `[intField] > '{"$numberInt": "5"}'`                               |           |
-| (int, str)         | `>=`       | `[intField] >= '{"$numberInt": "5"}'`                              |           |
-| (int, str)         | `<`        | `[intField] < '{"$numberInt": "5"}'`                               |           |
-| (int, str)         | `<=`       | `[intField] <= '{"$numberInt": "5"}'`                              |           |
-| (int, str)         | `==`       | `[intField] == '{"$numberInt": "5"}'`                              |           |
-| (int, str)         | `!=`       | `[intField] != '{"$numberInt": "5"}'`                              |           |
-| (str, real)        | `>`        | `'{"$numberDouble": "5.5"}' > [realField]`                         |           |
-| (str, real)        | `>=`       | `'{"$numberDouble": "5.5"}' >= [realField]`                        |           |
-| (str, real)        | `<`        | `'{"$numberDouble": "5.5"}' < [realField]`                         |           |
-| (str, real)        | `<=`       | `'{"$numberDouble": "5.5"}' <= [realField]`                        |           |
-| (str, real)        | `==`       | `'{"$numberDouble": "5.5"}' == [realField]`                        |           |
-| (str, real)        | `!=`       | `'{"$numberDouble": "5.5"}' != [realField]`                        |           |
-| (real, str)        | `>`        | `[realField] > '{"$numberDouble": "5.5"}'`                         |           |
-| (real, str)        | `>=`       | `[realField] >= '{"$numberDouble": "5.5"}'`                        |           |
-| (real, str)        | `<`        | `[realField] < '{"$numberDouble": "5.5"}'`                         |           |
-| (real, str)        | `<=`       | `[realField] <= '{"$numberDouble": "5.5"}'`                        |           |
-| (real, str)        | `==`       | `[realField] == '{"$numberDouble": "5.5"}'`                        |           |
-| (real, str)        | `!=`       | `[realField] != '{"$numberDouble": "5.5"}'`                        |           |
+| (str, int)         | `>`        | `'{"$numberInt": "5"}' > [intField]`                               |    yes       |
+| (str, int)         | `>=`       | `'{"$numberInt": "5"}' >= [intField]`                              |     yes      |
+| (str, int)         | `<`        | `'{"$numberInt": "5"}' < [intField]`                               |      yes     |
+| (str, int)         | `<=`       | `'{"$numberInt": "5"}' <= [intField]`                              |     yes      |
+| (str, int)         | `==`       | `'{"$numberInt": "5"}' == [intField]`                              |    yes       |
+| (str, int)         | `!=`       | `'{"$numberInt": "5"}' != [intField]`                              |   yes        |
+| (int, str)         | `>`        | `[intField] > '{"$numberInt": "5"}'`                               |      yes     |
+| (int, str)         | `>=`       | `[intField] >= '{"$numberInt": "5"}'`                              |       yes    |
+| (int, str)         | `<`        | `[intField] < '{"$numberInt": "5"}'`                               |       yes    |
+| (int, str)         | `<=`       | `[intField] <= '{"$numberInt": "5"}'`                              |        yes   |
+| (int, str)         | `==`       | `[intField] == '{"$numberInt": "5"}'`                              |      yes     |
+| (int, str)         | `!=`       | `[intField] != '{"$numberInt": "5"}'`                              |     yes      |
+| (str, real)        | `>`        | `'{"$numberDouble": "5.5"}' > [realField]`                         |       yes    |
+| (str, real)        | `>=`       | `'{"$numberDouble": "5.5"}' >= [realField]`                        |       yes    |
+| (str, real)        | `<`        | `'{"$numberDouble": "5.5"}' < [realField]`                         |      yes     |
+| (str, real)        | `<=`       | `'{"$numberDouble": "5.5"}' <= [realField]`                        |     yes      |
+| (str, real)        | `==`       | `'{"$numberDouble": "5.5"}' == [realField]`                        |      yes     |
+| (str, real)        | `!=`       | `'{"$numberDouble": "5.5"}' != [realField]`                        |    yes       |
+| (real, str)        | `>`        | `[realField] > '{"$numberDouble": "5.5"}'`                         |     yes      |
+| (real, str)        | `>=`       | `[realField] >= '{"$numberDouble": "5.5"}'`                        |     yes      |
+| (real, str)        | `<`        | `[realField] < '{"$numberDouble": "5.5"}'`                         |     yes      |
+| (real, str)        | `<=`       | `[realField] <= '{"$numberDouble": "5.5"}'`                        |      yes     |
+| (real, str)        | `==`       | `[realField] == '{"$numberDouble": "5.5"}'`                        |       yes    |
+| (real, str)        | `!=`       | `[realField] != '{"$numberDouble": "5.5"}'`                        |       yes    |
 | (str, datetime)    | `>`        | `'{"$date": "2024-01-01T00:00:00.000Z"}' > [saleDate]`             |           |
 | (str, datetime)    | `>=`       | `'{"$date": "2024-01-01T00:00:00.000Z"}' >= [saleDate]`            |           |
 | (str, datetime)    | `<`        | `'{"$date": "2024-01-01T00:00:00.000Z"}' < [saleDate]`             |           |
