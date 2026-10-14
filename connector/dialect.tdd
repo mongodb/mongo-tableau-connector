@@ -1355,6 +1355,12 @@
      <argument type='str' />
      <argument type='str' />
     </function>
+    <function group='string' name='REPLACE' return-type='str'>
+      <formula>REPLACE(%1,%2,%3)</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+    </function>
     <date-function name='DATEADD' return-type='datetime'>
       <formula>DATEADD(%1, %2, %3)</formula>
       <argument type='localstr'/>
