@@ -822,12 +822,12 @@
     <!-- Mixed string/non-string comparisons rely on the implicit type conversion
          of extended-JSON encoded string literals (e.g. '{"$date": "..."}'). -->
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>(%1 &lt; CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &lt; %2)</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
@@ -887,12 +887,12 @@
       <argument type='bool' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>(%1 &lt;= CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &lt;= %2)</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
@@ -952,12 +952,12 @@
       <argument type='bool' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>(%1 = CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) = %2)</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
@@ -1021,12 +1021,12 @@
       <argument type='datetime' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>(%1 != CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) != %2)</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
@@ -1086,12 +1086,12 @@
       <argument type='bool' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>(%1 &gt; CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &gt; %2)</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
@@ -1151,12 +1151,12 @@
       <argument type='bool' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>(%1 &gt;= CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='int' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &gt;= %2)</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='str' />
       <argument type='int' />
     </function>
