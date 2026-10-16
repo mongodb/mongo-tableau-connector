@@ -832,12 +832,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>(%1 &lt; CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &lt; %2)</formula>
+      <formula>(%1 &lt; %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
@@ -897,12 +897,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>(%1 &lt;= CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='&lt;=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &lt;= %2)</formula>
+      <formula>(%1 &lt;= %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
@@ -962,12 +962,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>(%1 = CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='==' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) = %2)</formula>
+      <formula>(%1 = %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
@@ -1031,12 +1031,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>(%1 != CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='!=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) != %2)</formula>
+      <formula>(%1 != %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
@@ -1096,12 +1096,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>(%1 &gt; CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &gt; %2)</formula>
+      <formula>(%1 &gt; %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
@@ -1161,12 +1161,12 @@
       <argument type='int' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>(%1 &gt;= CAST(%2 AS DOUBLE))</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='real' />
       <argument type='str' />
     </function>
     <function group='operator' name='&gt;=' return-type='bool'>
-      <formula>(CAST(%1 AS DOUBLE) &gt;= %2)</formula>
+      <formula>(%1 &gt;= %2)</formula>
       <argument type='str' />
       <argument type='real' />
     </function>
