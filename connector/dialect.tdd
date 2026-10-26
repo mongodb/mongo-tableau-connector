@@ -819,6 +819,38 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
+    <!-- Mixed string/non-string comparisons rely on the implicit type conversion
+         of extended-JSON encoded string literals (e.g. '{"$date": "..."}'). -->
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;' return-type='bool'>
+      <formula>(%1 &lt; %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
+    </function>
     <function group='operator' name='&lt;=' return-type='bool'>
       <formula>(%1 &lt;= %2)</formula>
       <argument type='real' />
@@ -854,6 +886,36 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&lt;=' return-type='bool'>
+      <formula>(%1 &lt;= %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
+    </function>
     <function group='operator' name='==' return-type='bool'>
       <formula>(%1 = %2)</formula>
       <argument type='real' />
@@ -888,6 +950,36 @@
       <formula>(%1 = %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='==' return-type='bool'>
+      <formula>(%1 = %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
     </function>
     <function group='operator' name='!' return-type='bool'>
       <formula>(NOT %1)</formula>
@@ -928,6 +1020,36 @@
       <argument type='datetime' />
       <argument type='datetime' />
     </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='!=' return-type='bool'>
+      <formula>(%1 != %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
+    </function>
     <function group='operator' name='&gt;' return-type='bool'>
       <formula>(%1 &gt; %2)</formula>
       <argument type='real' />
@@ -963,6 +1085,36 @@
       <argument type='bool' />
       <argument type='bool' />
     </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;' return-type='bool'>
+      <formula>(%1 &gt; %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
+    </function>
     <function group='operator' name='&gt;=' return-type='bool'>
       <formula>(%1 &gt;= %2)</formula>
       <argument type='real' />
@@ -997,6 +1149,36 @@
       <formula>(%1 &gt;= %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='int' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='real' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='datetime' />
+      <argument type='str' />
+    </function>
+    <function group='operator' name='&gt;=' return-type='bool'>
+      <formula>(%1 &gt;= %2)</formula>
+      <argument type='str' />
+      <argument type='datetime' />
     </function>
     <function group='operator' name='&amp;&amp;' return-type='bool'>
       <formula>(%1 AND %2)</formula>
